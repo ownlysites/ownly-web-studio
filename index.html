@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ownly Web Studio — Websites Built to Earn Their Keep</title>
+<meta name="description" content="Custom websites that work as hard as you do. Free design mockup before you pay a dime. AI agents, SEO, conversion optimization built-in. Launch in 7–21 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-d:#062B3D; --navy:#0F3F58; --navy-l:#1B5777;
+    --gold:#C9A84C; --gold-l:#E0C36F; --gold-d:#A8893E;
+    --cream:#FAF7F0; --soft:#EEF1F4; --paper:#FDFAF2;
+    --text-d:#062B3D; --text-m:#445B6B; --text-l:rgba(255,255,255,.78);
+    --r:14px; --rl:18px; --rs:8px;
+    --ff:'Cormorant Garamond', Georgia, serif;
+    --fb:'DM Sans', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;scroll-behavior:smooth}
+  body{font-family:var(--fb);background:var(--paper);color:var(--text-d);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+  /* ── TOP BAR ── */
+  .topbar{
+    position:sticky;top:0;z-index:50;background:rgba(6,43,61,.96);backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(201,168,76,.25);padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+  .brand .mark{font-family:var(--ff);font-size:24px;font-weight:600;color:var(--gold-l)}
+  .brand .sub{font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.14em;text-transform:uppercase}
+  .nav-links{display:flex;gap:22px;align-items:center}
+  .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:13px;font-weight:500;transition:color .15s}
+  .nav-links a:hover{color:var(--gold-l)}
+  .nav-cta{background:var(--gold);color:var(--navy-d);border:none;border-radius:99px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--fb);text-decoration:none}
+  .nav-cta:hover{background:var(--gold-l)}
+  @media(max-width:680px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ── HERO ── */
+  .hero{
+    background:linear-gradient(135deg,var(--navy-d) 0%,var(--navy) 60%,var(--navy-l) 100%);
+    color:#fff;padding:80px 24px 100px;text-align:center;position:relative;overflow:hidden;
+  }
+  .hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 80%,rgba(201,168,76,.15) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(201,168,76,.10) 0%,transparent 50%);pointer-events:none}
+  .hero-inner{max-width:880px;margin:0 auto;position:relative}
+  .hero-eyebrow{font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.18em;margin-bottom:18px}
+  .hero h1{font-family:var(--ff);font-size:clamp(36px,5.5vw,60px);font-weight:500;line-height:1.05;letter-spacing:-.01em;margin:0 0 22px}
+  .hero h1 em{color:var(--gold-l);font-style:italic}
+  .hero-sub{font-size:18px;color:rgba(255,255,255,.78);line-height:1.65;max-width:660px;margin:0 auto 32px;font-weight:300}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-primary{background:var(--gold);color:var(--navy-d);border:none;border-radius:var(--rs);padding:15px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--fb);text-decoration:none;display:inline-block;transition:filter .15s,transform .1s}
+  .btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--gold-l);border:1.5px solid rgba(201,168,76,.5);border-radius:var(--rs);padding:14px 26px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);text-decoration:none;display:inline-block}
+  .btn-ghost:hover{background:rgba(201,168,76,.08);border-color:var(--gold)}
+  .hero-meta{margin-top:24px;font-size:12px;color:rgba(255,255,255,.5)}
+
+  /* ── STAT STRIP ── */
+  .stats{
+    background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));
+    color:var(--navy-d);padding:24px;display:grid;
+    grid-template-columns:repeat(3,1fr);gap:14px;text-align:center;
+  }
+  .stat{padding:6px 12px}
+  .stat .num{font-family:var(--ff);font-size:32px;font-weight:600;line-height:1}
+  .stat .lbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:6px}
+  @media(max-width:680px){.stats{grid-template-columns:1fr}}
+
+  /* ── SECTIONS ── */
+  section{padding:80px 24px}
+  .container{max-width:1180px;margin:0 auto}
+  .sec-eyebrow{font-size:11px;font-weight:700;color:var(--gold-d);text-transform:uppercase;letter-spacing:.16em;margin-bottom:10px;text-align:center}
+  .sec-title{font-family:var(--ff);font-size:clamp(30px,4vw,46px);font-weight:500;color:var(--navy-d);line-height:1.1;letter-spacing:-.005em;margin:0 0 16px;text-align:center}
+  .sec-title em{color:var(--gold-d);font-style:italic}
+  .sec-sub{font-size:16px;color:var(--text-m);max-width:680px;margin:0 auto 56px;text-align:center;line-height:1.7}
+
+  /* ── SERVICE GRID ── */
+  .services{background:#fff;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:880px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:580px){.svc-grid{grid-template-columns:1fr}}
+  .svc-card{background:linear-gradient(180deg,#fff,var(--paper));border:1px solid rgba(22,43,68,.08);border-radius:var(--rl);padding:30px 26px;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .svc-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.4);box-shadow:0 12px 32px rgba(22,43,68,.10)}
+  .svc-icon{font-size:38px;line-height:1;margin-bottom:14px}
+  .svc-name{font-family:var(--ff);font-size:22px;font-weight:600;color:var(--navy-d);margin:0 0 8px}
+  .svc-desc{font-size:13.5px;color:var(--text-m);line-height:1.65;margin:0}
+
+  /* ── PROCESS TIMELINE ── */
+  .process{background:linear-gradient(180deg,var(--paper),#fff)}
+  .timeline{position:relative;max-width:900px;margin:0 auto}
+  .step{display:grid;grid-template-columns:80px 1fr;gap:28px;margin-bottom:28px;align-items:flex-start}
+  .step-num{
+    background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#fff;
+    width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:var(--ff);font-size:30px;font-weight:600;box-shadow:0 6px 20px rgba(201,168,76,.35);
+  }
+  .step-body{background:#fff;border:1px solid rgba(22,43,68,.08);border-radius:var(--rl);padding:22px 26px;flex:1}
+  .step-tag{font-size:10px;font-weight:700;color:var(--gold-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+  .step-title{font-family:var(--ff);font-size:22px;font-weight:600;color:var(--navy-d);margin:0 0 8px}
+  .step-desc{font-size:13.5px;color:var(--text-m);line-height:1.65;margin:0}
+
+  /* ── PRICING ── */
+  .pricing{background:#fff}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:880px){.price-grid{grid-template-columns:1fr}}
+  .price-card{background:linear-gradient(180deg,#fff,var(--paper));border:1.5px solid rgba(22,43,68,.10);border-radius:var(--rl);padding:32px 28px;text-align:center;position:relative;transition:transform .2s,box-shadow .2s}
+  .price-card.featured{border-color:var(--gold);background:linear-gradient(180deg,#fff,#fff8e8);transform:scale(1.03)}
+  .price-card.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy-d);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:99px}
+  .price-tier{font-size:11px;font-weight:700;color:var(--gold-d);letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+  .price-name{font-family:var(--ff);font-size:30px;font-weight:600;color:var(--navy-d);margin:0 0 4px}
+  .price-range{font-family:var(--ff);font-size:24px;font-weight:500;color:var(--gold-d);margin:0 0 18px}
+  .price-list{list-style:none;padding:0;margin:0 0 24px;text-align:left}
+  .price-list li{font-size:13px;color:var(--text-m);padding:7px 0;border-bottom:1px dashed rgba(22,43,68,.08);display:flex;gap:8px;align-items:flex-start}
+  .price-list li::before{content:'✓';color:var(--gold-d);font-weight:700;flex-shrink:0}
+  .price-list li:last-child{border-bottom:none}
+
+  /* ── INDUSTRIES ── */
+  .industries{background:linear-gradient(180deg,var(--paper),#fff);text-align:left}
+  .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:880px){.ind-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:580px){.ind-grid{grid-template-columns:1fr}}
+  .ind-card{background:#fff;border:1px solid rgba(22,43,68,.08);border-radius:var(--rl);padding:24px 22px;transition:border-color .15s}
+  .ind-card:hover{border-color:var(--gold)}
+  .ind-icon{font-size:32px;margin-bottom:10px}
+  .ind-name{font-family:var(--ff);font-size:18px;font-weight:600;color:var(--navy-d);margin:0 0 6px}
+  .ind-desc{font-size:12.5px;color:var(--text-m);line-height:1.6;margin:0}
+
+  /* ── INTAKE FORM ── */
+  .intake{background:linear-gradient(135deg,var(--navy-d),var(--navy));color:#fff;padding:80px 24px}
+  .intake .sec-eyebrow{color:var(--gold-l)}
+  .intake .sec-title,.intake .sec-title em{color:#fff}
+  .intake .sec-title em{color:var(--gold-l)}
+  .intake .sec-sub{color:rgba(255,255,255,.7)}
+  .form-wrap{max-width:880px;margin:0 auto;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.25);border-radius:var(--rl);padding:36px}
+  .form-grid{display:grid;gap:14px}
+  .form-grid.c2{grid-template-columns:repeat(2,1fr)}
+  .form-grid.c3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:680px){.form-grid.c2,.form-grid.c3{grid-template-columns:1fr}}
+  .field label{display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+  .field input,.field select,.field textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:var(--rs);padding:10px 12px;font-family:var(--fb);font-size:14px}
+  .field textarea{resize:vertical;min-height:80px}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.10)}
+  .field select option{background:var(--navy-d);color:#fff}
+  .field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.35)}
+  .checks{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:rgba(255,255,255,.85);margin-top:6px}
+  .checks label{display:flex;align-items:center;gap:6px;cursor:pointer}
+  .form-submit{margin-top:8px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .form-meta{font-size:11px;color:rgba(255,255,255,.55)}
+
+  /* ── FOOTER ── */
+  footer{background:var(--navy-d);color:rgba(255,255,255,.7);text-align:center;padding:36px 24px}
+  footer .ftr-brand{font-family:var(--ff);font-size:22px;color:var(--gold-l);font-weight:600;margin-bottom:10px}
+  footer .ftr-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:14px 0;font-size:13px}
+  footer .ftr-links a{color:rgba(255,255,255,.7);text-decoration:none}
+  footer .ftr-links a:hover{color:var(--gold-l)}
+  footer .ftr-fact{margin:20px 0 8px;font-size:13px;color:var(--gold-l);font-weight:600;letter-spacing:.04em}
+  footer .ftr-fact em{font-style:italic;color:#fff}
+  footer .ftr-meta{font-size:11px;color:rgba(255,255,255,.45);margin-top:10px}
+
+  /* ── SCROLL CUE ── */
+  .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);width:28px;height:46px;border:2px solid rgba(255,255,255,.4);border-radius:14px;display:flex;justify-content:center}
+  .scroll-cue::after{content:'';width:5px;height:8px;background:var(--gold-l);border-radius:3px;margin-top:8px;animation:scroll 1.8s infinite}
+  @keyframes scroll{0%{opacity:0;transform:translateY(0)}30%{opacity:1}80%{opacity:0;transform:translateY(14px)}100%{opacity:0}}
+</style>
+</head>
+<body>
+
+  <!-- ═══════ TOP BAR ═══════ -->
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <div>
+        <div class="mark">Ownly Web Studio</div>
+        <div class="sub">A Service of Ownly ONCE</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#brief" class="nav-cta">Get Free Mockup →</a>
+    </nav>
+  </header>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">★ Custom Websites · Built to Sell · Free Design Mockup First</div>
+      <h1>Websites that <em>earn their keep</em>.<br>Not just sit on the internet.</h1>
+      <p class="hero-sub">Most websites are digital business cards collecting dust. We build sites that work like a 24/7 sales rep — capturing leads, answering questions, and turning visitors into paying customers. See your custom mockup before you pay a dime.</p>
+      <div class="hero-ctas">
+        <a href="#brief" class="btn-primary">🎨 Get My Free Mockup →</a>
+        <a href="https://calendly.com/daveivery" class="btn-ghost" target="_blank" rel="noopener">📅 Book a 15-Min Sit Down</a>
+      </div>
+      <div class="hero-meta">⏱️ Brief takes 5 minutes · No credit card · Mockup back in 3–5 days</div>
+    </div>
+    <div class="scroll-cue"></div>
+  </section>
+
+  <!-- ═══════ STAT STRIP ═══════ -->
+  <div class="stats">
+    <div class="stat"><div class="num">FREE</div><div class="lbl">Design Mockup First</div></div>
+    <div class="stat"><div class="num">7–21</div><div class="lbl">Days to Launch</div></div>
+    <div class="stat"><div class="num">AI</div><div class="lbl">Voice + Chat Agents Built In</div></div>
+  </div>
+
+  <!-- ═══════ SERVICES ═══════ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="sec-eyebrow">What We Build</div>
+      <h2 class="sec-title">A complete digital storefront — <em>not just a website</em>.</h2>
+      <p class="sec-sub">Every Ownly Web Studio build ships with the systems most agencies bolt on as expensive add-ons later. Here's what's included or available bundled:</p>
+
+      <div class="svc-grid">
+
+        <div class="svc-card">
+          <div class="svc-icon">🌐</div>
+          <h3 class="svc-name">Website Design &amp; Development</h3>
+          <p class="svc-desc">Custom-designed, mobile-first, lightning-fast sites built around your brand and your buyer. From single-page lead pages to multi-page portfolio + e-commerce builds.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">🤖</div>
+          <h3 class="svc-name">AI Voice + Chat Agents</h3>
+          <p class="svc-desc">Built-in 24/7 phone answering and website chat — trained on YOUR business. Captures every lead that calls or visits, even at 2 a.m. Speed-to-lead is the difference.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">📍</div>
+          <h3 class="svc-name">SEO + Google Map Pack</h3>
+          <p class="svc-desc">Local SEO done right — Map Pack visibility, business listings, "near me" optimization, and review automation. So new customers find you when they're ready to buy.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">🎨</div>
+          <h3 class="svc-name">Brand Identity &amp; Design</h3>
+          <p class="svc-desc">Logo design, color palette, typography, brand guidelines, and supporting assets (business cards, social templates). One cohesive brand across every touchpoint.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">⚡</div>
+          <h3 class="svc-name">Conversion Optimization</h3>
+          <p class="svc-desc">Call-tracking, form-tracking, A/B testing, and conversion-rate audits. Every site we ship knows which dollar brought which customer — so we double the winners.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">🛡️</div>
+          <h3 class="svc-name">Hosting + Maintenance</h3>
+          <p class="svc-desc">SSL, daily backups, uptime monitoring, security patches, and content updates. Your site stays online, fast, and secure — so you focus on running the business.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PROCESS ═══════ -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="sec-eyebrow">From Brief to Launch</div>
+      <h2 class="sec-title">Four simple steps. <em>Zero risk until you see the design.</em></h2>
+      <p class="sec-sub">You don't pay until you've seen what we'd build for you. The first mockup is on us — that's how confident we are in the work.</p>
+
+      <div class="timeline">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-tag">Step 1 · Free</div>
+            <h3 class="step-title">Tell Us About Your Business</h3>
+            <p class="step-desc">5-minute brief: what you do, who you serve, what success looks like, color preferences, and 3 sites you love. We use it to build your custom mockup. No credit card.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-tag">Step 2 · Free Mockup</div>
+            <h3 class="step-title">Receive Your Custom Design (3–5 Days)</h3>
+            <p class="step-desc">A real, custom-designed mockup of your homepage — not a template, not a stock photo of someone else's site. You see EXACTLY what we'd build before you spend a dime.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-tag">Step 3 · Quote &amp; Build</div>
+            <h3 class="step-title">Approve. Pay. We Build.</h3>
+            <p class="step-desc">If the mockup is right, we send a fixed-price quote based on your scope. Pay in milestones. Build typically takes 7–21 days depending on size and add-ons. Daily updates the whole way.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-tag">Step 4 · Launch &amp; Optimize</div>
+            <h3 class="step-title">Go Live. We Don't Disappear.</h3>
+            <p class="step-desc">Site launches with full tracking, analytics, AI agents wired up, and SEO foundation. We provide 30 days of post-launch support free. Optional monthly maintenance plan keeps it humming forever.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PRICING ═══════ -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="sec-eyebrow">Transparent Pricing</div>
+      <h2 class="sec-title">Three tiers. <em>Pick the one that fits.</em></h2>
+      <p class="sec-sub">Final quote depends on your specific scope, but here's where most projects land. Bundle add-ons (logo, SEO, hosting) drop the total — we'll outline savings in the proposal.</p>
+
+      <div class="price-grid">
+
+        <div class="price-card">
+          <div class="price-tier">Starter</div>
+          <h3 class="price-name">Lead Page</h3>
+          <div class="price-range">$1,500 — $3,000</div>
+          <ul class="price-list">
+            <li>1–3 page mobile-first site</li>
+            <li>Lead capture form + tracking</li>
+            <li>AI chat agent (basic)</li>
+            <li>Free design mockup</li>
+            <li>Domain + hosting setup</li>
+            <li>30 days post-launch support</li>
+          </ul>
+          <a href="#brief" class="btn-primary" style="display:block;text-align:center;width:100%">Start My Brief →</a>
+        </div>
+
+        <div class="price-card featured">
+          <div class="price-tier">Pro</div>
+          <h3 class="price-name">Full Business Site</h3>
+          <div class="price-range">$3,000 — $8,000</div>
+          <ul class="price-list">
+            <li>5–10 pages, custom design</li>
+            <li>AI voice + chat agents (trained)</li>
+            <li>Local SEO + Map Pack setup</li>
+            <li>Review automation</li>
+            <li>Conversion tracking + analytics</li>
+            <li>Booking / scheduling integration</li>
+            <li>Free design mockup</li>
+            <li>60 days post-launch support</li>
+          </ul>
+          <a href="#brief" class="btn-primary" style="display:block;text-align:center;width:100%">Start My Brief →</a>
+        </div>
+
+        <div class="price-card">
+          <div class="price-tier">Custom</div>
+          <h3 class="price-name">E-Commerce / Portal</h3>
+          <div class="price-range">$8,000 — $25,000+</div>
+          <ul class="price-list">
+            <li>E-commerce / membership / portal</li>
+            <li>Payment integration</li>
+            <li>Multi-language support</li>
+            <li>Custom integrations &amp; APIs</li>
+            <li>Mobile app available</li>
+            <li>Dedicated project manager</li>
+            <li>Quarterly optimization reviews</li>
+            <li>90 days post-launch support</li>
+          </ul>
+          <a href="#brief" class="btn-primary" style="display:block;text-align:center;width:100%">Start My Brief →</a>
+        </div>
+
+      </div>
+
+      <div style="text-align:center;margin-top:36px;font-size:13px;color:var(--text-m)">
+        💡 <strong>Bundle &amp; save:</strong> Logo design, SEO, hosting, and social templates can be added — bundled add-ons typically save 15–25% versus piecing them together later.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ INDUSTRIES ═══════ -->
+  <section class="industries">
+    <div class="container">
+      <div class="sec-eyebrow">Industries We Serve</div>
+      <h2 class="sec-title">Custom-built for <em>your kind of business</em>.</h2>
+      <p class="sec-sub">We don't do cookie-cutter. Every build starts with what makes your industry different — and we'd never use the same template twice.</p>
+
+      <div class="ind-grid">
+        <div class="ind-card"><div class="ind-icon">🏡</div><h3 class="ind-name">Real Estate Agents</h3><p class="ind-desc">Listing pages that convert, lead-magnet downloads, automated follow-up, and a steady stream of buyer + seller leads from local search.</p></div>
+        <div class="ind-card"><div class="ind-icon">🔧</div><h3 class="ind-name">Local Service Businesses</h3><p class="ind-desc">Plumbing, HVAC, electrical, roofing, landscaping. Built for "near me" search dominance with instant-quote forms and click-to-call.</p></div>
+        <div class="ind-card"><div class="ind-icon">🍽️</div><h3 class="ind-name">Restaurants &amp; Hospitality</h3><p class="ind-desc">Online ordering, reservations, gift cards, loyalty programs, and Google Maps optimization that puts you in the local 3-pack.</p></div>
+        <div class="ind-card"><div class="ind-icon">⚕️</div><h3 class="ind-name">Medical &amp; Dental Practices</h3><p class="ind-desc">HIPAA-aware patient portals, appointment booking, insurance verification forms, and SEO that brings in new patients month after month.</p></div>
+        <div class="ind-card"><div class="ind-icon">🛍️</div><h3 class="ind-name">E-Commerce &amp; Retail</h3><p class="ind-desc">Conversion-optimized product pages, cart-abandonment recovery, email automation, and Shopify or WooCommerce builds done right.</p></div>
+        <div class="ind-card"><div class="ind-icon">⚖️</div><h3 class="ind-name">Professional Services</h3><p class="ind-desc">Lawyers, accountants, financial advisors, consultants. Authority-building content, lead-qualifier forms, and case-study showcases.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ INTAKE FORM ═══════ -->
+  <section class="intake" id="brief">
+    <div class="container">
+      <div class="sec-eyebrow">Free Mockup Brief</div>
+      <h2 class="sec-title">Tell us about your business — <em>we'll design something custom.</em></h2>
+      <p class="sec-sub">5 minutes. No credit card. Custom mockup back in 3–5 business days. If you love it, we send a fixed-price quote based on your scope.</p>
+
+      <form class="form-wrap" id="webStudioForm" onsubmit="submitBrief(event)">
+
+        <div class="form-grid c2">
+          <div class="field"><label>Business / Organization Name *</label><input type="text" name="business" required /></div>
+          <div class="field"><label>Type of Business *</label><input type="text" name="biztype" required placeholder="e.g. real estate, dental, e-com" /></div>
+        </div>
+
+        <div class="field"><label>Type of Website You Need *</label>
+          <select name="sitetype" required>
+            <option value="">— Select —</option>
+            <option>Personal / Portfolio</option><option>Local Business / Service</option><option>Restaurant / Food</option>
+            <option>E-Commerce</option><option>Medical / Healthcare</option><option>Professional Services</option>
+            <option>Real Estate</option><option>Education / Training</option><option>SaaS / Software</option>
+            <option>Membership / Portal</option><option>Other</option>
+          </select>
+        </div>
+
+        <div class="field"><label>Tell us about your company *</label>
+          <textarea name="about" rows="3" required placeholder="What you do, who you serve, what makes you different"></textarea>
+        </div>
+
+        <div class="field"><label>Primary purpose of the site *</label>
+          <select name="purpose" required>
+            <option value="">— Select —</option>
+            <option>Generate leads / new customers</option>
+            <option>Sell products online (e-commerce)</option>
+            <option>Showcase services / portfolio</option>
+            <option>Provide info / educate</option>
+            <option>Member / client portal</option>
+            <option>Booking / scheduling</option>
+          </select>
+        </div>
+
+        <div class="form-grid c2">
+          <div class="field"><label>Domain / Website Address *</label><input type="text" name="domain" required placeholder="yourcompany.com (existing or desired)" /></div>
+          <div class="field"><label>Budget Range *</label>
+            <select name="budget" required>
+              <option value="">— Select —</option>
+              <option>Under $1,500 (starter)</option><option>$1,500 — $3,000 (lead page)</option>
+              <option>$3,000 — $8,000 (full business site)</option><option>$8,000 — $15,000 (custom)</option>
+              <option>$15,000+ (e-com / portal / app)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field"><label>Navigation items you want (check all that apply)</label>
+          <div class="checks">
+            <label><input type="checkbox" name="nav" value="About"/> About</label>
+            <label><input type="checkbox" name="nav" value="Services"/> Services</label>
+            <label><input type="checkbox" name="nav" value="Testimonials"/> Testimonials</label>
+            <label><input type="checkbox" name="nav" value="Shop"/> Shop</label>
+            <label><input type="checkbox" name="nav" value="Contact"/> Contact</label>
+            <label><input type="checkbox" name="nav" value="Blog"/> Blog</label>
+            <label><input type="checkbox" name="nav" value="Portfolio"/> Portfolio</label>
+            <label><input type="checkbox" name="nav" value="FAQ"/> FAQ</label>
+            <label><input type="checkbox" name="nav" value="Booking"/> Booking</label>
+          </div>
+        </div>
+
+        <div class="field"><label>Top 3-5 services or products to feature *</label>
+          <textarea name="features" rows="2" required placeholder="Bullet your top offerings"></textarea>
+        </div>
+
+        <div class="form-grid c3">
+          <div class="field"><label>Website you like #1 *</label><input type="text" name="like1" required placeholder="domain.com" /></div>
+          <div class="field"><label>#2 *</label><input type="text" name="like2" required /></div>
+          <div class="field"><label>#3 *</label><input type="text" name="like3" required /></div>
+        </div>
+
+        <div class="form-grid c2">
+          <div class="field"><label>Color scheme (2-3 colors max) *</label><input type="text" name="colors" required placeholder="e.g. navy, gold, cream" /></div>
+          <div class="field"><label>Need monthly updates? *</label>
+            <select name="updates" required>
+              <option value="">— Select —</option><option>Yes</option><option>No</option><option>Not sure</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field"><label>Bundle add-ons (saves 15-25% vs adding later)</label>
+          <div class="checks">
+            <label><input type="checkbox" name="addon" value="Logo Design"/> Logo Design</label>
+            <label><input type="checkbox" name="addon" value="Brand Identity"/> Brand Identity</label>
+            <label><input type="checkbox" name="addon" value="Site Photography"/> Site Photography</label>
+            <label><input type="checkbox" name="addon" value="SEO"/> SEO</label>
+            <label><input type="checkbox" name="addon" value="AI Chat Agent"/> AI Chat Agent</label>
+            <label><input type="checkbox" name="addon" value="AI Voice Agent"/> AI Voice Agent</label>
+            <label><input type="checkbox" name="addon" value="Social Media Marketing"/> Social Marketing</label>
+            <label><input type="checkbox" name="addon" value="Domain Registration"/> Domain Registration</label>
+            <label><input type="checkbox" name="addon" value="Hosting"/> Hosting</label>
+            <label><input type="checkbox" name="addon" value="Maintenance"/> Monthly Maintenance</label>
+          </div>
+        </div>
+
+        <div class="field"><label>Anything special, or features not listed</label>
+          <textarea name="extras" rows="2" placeholder="e.g. booking widget, member portal, multilingual..."></textarea>
+        </div>
+
+        <div class="form-grid c3">
+          <div class="field"><label>Your Name *</label><input type="text" name="name" required /></div>
+          <div class="field"><label>Email *</label><input type="email" name="email" required /></div>
+          <div class="field"><label>Phone *</label><input type="tel" name="phone" required /></div>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-primary">📧 Send My Brief — Get Free Mockup →</button>
+          <span class="form-meta">Your default email opens with everything pre-filled. Just hit Send. We acknowledge in 24 hours.</span>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer>
+    <div class="ftr-brand">Ownly Web Studio</div>
+    <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:6px">A service of Ownly ONCE</div>
+    <div class="ftr-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#brief">Free Mockup</a>
+      <a href="https://itsownlymoney.com">Ownly ONCE Ecosystem</a>
+      <a href="https://calendly.com/daveivery">Book a Sit Down</a>
+    </div>
+    <div class="ftr-fact">F.A.C.T. — <em>Find · Add · Create · Track</em> — the money your business is missing.</div>
+    <div class="ftr-meta">© 2026 Ownly ONCE LLC · Dave Ivery, CFEI / PFSA · 941-277-9876 · daveivery@gmail.com<br>All website builds are delivered via vetted production partners. Pricing varies by scope.</div>
+  </footer>
+
+  <script>
+    function submitBrief(e){
+      e.preventDefault();
+      var f = e.target;
+      var fd = new FormData(f);
+      function val(k){ return fd.get(k) || ''; }
+      function all(k){ return fd.getAll(k).join(', ') || '(none)'; }
+      var body =
+        'NEW WEBSITE BRIEF — Ownly Web Studio\n' +
+        'Submitted: ' + new Date().toLocaleString() + '\n' +
+        '────────────────────────────────────────\n\n' +
+        'BUSINESS INFO\n' +
+        'Business: ' + val('business') + '\n' +
+        'Type: ' + val('biztype') + '\n' +
+        'Website type: ' + val('sitetype') + '\n' +
+        'About:\n' + val('about') + '\n\n' +
+        'Primary purpose: ' + val('purpose') + '\n' +
+        'Domain: ' + val('domain') + '\n' +
+        'Budget: ' + val('budget') + '\n\n' +
+        'STRUCTURE & DESIGN\n' +
+        'Navigation: ' + all('nav') + '\n' +
+        'Services to feature:\n' + val('features') + '\n\n' +
+        'Reference sites:\n  1) ' + val('like1') + '\n  2) ' + val('like2') + '\n  3) ' + val('like3') + '\n\n' +
+        'Colors: ' + val('colors') + '\n' +
+        'Monthly updates: ' + val('updates') + '\n' +
+        'Add-ons: ' + all('addon') + '\n' +
+        'Special / extras:\n' + val('extras') + '\n\n' +
+        'CONTACT\n' +
+        'Name: ' + val('name') + '\n' +
+        'Email: ' + val('email') + '\n' +
+        'Phone: ' + val('phone') + '\n\n' +
+        '— Sent from ownly-web-studio.vercel.app';
+      var subject = encodeURIComponent('Web Studio Brief: ' + (val('business') || 'New Lead'));
+      var mailto = 'mailto:daveivery@gmail.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+      window.location.href = mailto;
+      try { navigator.clipboard.writeText('SUBJECT: '+decodeURIComponent(subject)+'\n\n'+body); } catch(_){}
+      setTimeout(function(){
+        alert("✓ Your email is opening pre-filled. Just hit Send.\n\nIf nothing opened, the brief was also copied to your clipboard — paste it into a new email to daveivery@gmail.com.");
+      }, 200);
+      return false;
+    }
+  </script>
+
+</body>
+</html>
