@@ -127,9 +127,6 @@ export function BriefForm() {
                     Book Instead
                   </Link>
                 </Button>
-                <p className="ml-auto text-[11px] text-slate-text">
-                  Writes to Supabase · opens your email · copies to clipboard.
-                </p>
                 {err && <p className="col-span-full text-[12px] text-red-700">{err}</p>}
               </div>
             </form>
