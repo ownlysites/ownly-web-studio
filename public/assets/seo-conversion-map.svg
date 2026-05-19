@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" role="img" aria-labelledby="title desc">
+  <title id="title">SEO and conversion map</title>
+  <desc id="desc">A custom diagram mapping search metadata, page sections, proof, calls to action, booking, and follow-up.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#123965"/><stop offset="1" stop-color="#0b2341"/></linearGradient>
+    <linearGradient id="gold" x1="0" x2="1"><stop stop-color="#efd37f"/><stop offset="1" stop-color="#c9a227"/></linearGradient>
+    <linearGradient id="green" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#32b47e"/><stop offset="1" stop-color="#0b6b4f"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#0b2341" flood-opacity=".34"/></filter>
+  </defs>
+  <rect width="720" height="460" rx="28" fill="url(#bg)"/>
+  <path d="M58 110h604M58 218h604M58 326h604" stroke="#eef2f5" stroke-opacity=".08"/>
+  <rect x="44" y="38" width="632" height="384" rx="22" fill="#eef2f5" fill-opacity=".06" stroke="#c9a227" stroke-opacity=".32"/>
+  <g filter="url(#shadow)">
+    <rect x="84" y="82" width="220" height="86" rx="16" fill="#f7f8f8"/>
+    <text x="108" y="118" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900" fill="#123965">Search Entry</text>
+    <rect x="108" y="136" width="148" height="10" rx="5" fill="#123965" fill-opacity=".22"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="416" y="82" width="220" height="86" rx="16" fill="#f7f8f8"/>
+    <text x="440" y="118" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900" fill="#123965">Landing Proof</text>
+    <rect x="440" y="136" width="126" height="10" rx="5" fill="#123965" fill-opacity=".22"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="248" y="204" width="224" height="96" rx="18" fill="#f7f8f8"/>
+    <text x="282" y="242" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" fill="#123965">Primary Action</text>
+    <rect x="282" y="260" width="118" height="20" rx="7" fill="url(#gold)"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="84" y="320" width="220" height="76" rx="16" fill="#f7f8f8"/>
+    <text x="108" y="353" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900" fill="#123965">Booking / Form</text>
+    <rect x="108" y="370" width="112" height="9" rx="5" fill="#123965" fill-opacity=".22"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="416" y="320" width="220" height="76" rx="16" fill="#f7f8f8"/>
+    <text x="440" y="353" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900" fill="#123965">Follow-up Path</text>
+    <rect x="440" y="370" width="126" height="9" rx="5" fill="#123965" fill-opacity=".22"/>
+  </g>
+  <path d="M304 126h112" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M526 168c0 74-54 76-54 118" fill="none" stroke="url(#green)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M360 300c0 48-76 34-116 48" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M304 358h112" stroke="url(#green)" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="304" cy="126" r="11" fill="url(#gold)"/>
+  <circle cx="416" cy="126" r="11" fill="url(#gold)"/>
+  <circle cx="472" cy="286" r="11" fill="url(#green)"/>
+  <circle cx="304" cy="358" r="11" fill="url(#gold)"/>
+  <circle cx="416" cy="358" r="11" fill="url(#green)"/>
+</svg>
