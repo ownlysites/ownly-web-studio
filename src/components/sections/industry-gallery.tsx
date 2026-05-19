@@ -119,13 +119,13 @@ function GalleryCard({ v, index }: { v: Vertical; index: number }) {
           className="absolute inset-0 transition-transform duration-300"
           style={{ transform: `translate3d(${tx}px, ${ty}px, 0) scale(1.04)` }}
         >
-          <Image
-            src={`/examples/${v.slug}-hero.jpg`}
-            alt={`Hero screenshot of ${v.title}, a ${v.industry} site built by Ownly Web Studio`}
-            width={v.width}
-            height={v.height}
-            className="h-full w-full object-cover object-top"
-            sizes="(min-width: 1280px) 320px, (min-width: 640px) 50vw, 100vw"
+          <iframe
+            src={`https://ownly-examples.vercel.app/${v.slug}`}
+            title={`${v.title} — live ${v.industry} sample site by Ownly Web Studio`}
+            loading="lazy"
+            scrolling="no"
+            className="pointer-events-none origin-top-left"
+            style={{ width: "1440px", height: "900px", transform: "scale(0.222)", transformOrigin: "top left", border: "0" }}
           />
         </div>
         <div className="absolute right-2.5 top-2.5 translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -141,12 +141,12 @@ function GalleryCard({ v, index }: { v: Vertical; index: number }) {
         <h3 className="font-display text-xl font-bold leading-tight text-navy">{v.title}</h3>
         <p className="text-sm leading-relaxed text-slate-text">{v.outcome}</p>
         <a
-          href={`/examples/${v.slug}-hero.jpg`}
+          href={`https://ownly-examples.vercel.app/${v.slug}`}
           target="_blank"
           rel="noopener"
           className="mt-2 inline-flex w-fit items-center gap-1 text-[11px] font-extrabold uppercase tracking-[0.14em] text-navy transition-colors hover:text-gold-deep"
         >
-          View capture
+          Open Live Sample
           <ArrowUpRight className="h-3 w-3" />
         </a>
       </div>
