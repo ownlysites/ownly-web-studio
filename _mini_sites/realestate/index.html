@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Hartley Group — Luxury Real Estate · Naples + Miami</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --charcoal:#1f1f1d;--bone:#f5efe6;--sage:#a8b3a4;--rust:#a76840;--paper:#fbf7ef;--ink:#262522;--muted:#7d7569;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1320px;margin:auto;padding:0 32px}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:22px 0;background:rgba(251,247,239,.55);backdrop-filter:blur(20px);border-bottom:1px solid rgba(31,31,29,.08)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;gap:32px}
+.brand{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:0.08em;font-weight:600;color:var(--ink)}
+.brand em{font-style:italic;color:var(--rust)}
+.brand small{display:block;font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:var(--muted);margin-top:2px;font-weight:600}
+.nav-links{display:flex;gap:34px;font-size:13px;font-weight:500;letter-spacing:0.04em}
+.nav-links a{color:var(--ink);text-decoration:none;opacity:0.8}
+.nav-links a:hover{color:var(--rust)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:0;font-weight:600;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s;text-decoration:none}
+.btn-c{background:var(--charcoal);color:var(--bone)}.btn-c:hover{background:#000}
+.btn-line{background:transparent;color:var(--charcoal);border:1px solid var(--charcoal)}
+.hero{padding:120px 0 0;position:relative;overflow:hidden}
+.hero-art{height:80vh;min-height:560px;background:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=2400&q=80') center/cover;position:relative}
+.hero-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,31,29,.18),rgba(31,31,29,.06) 30%,transparent 60%,rgba(31,31,29,.42))}
+.hero-overlay{position:relative;z-index:2;padding:80px 0;height:80vh;min-height:560px;display:grid;align-content:end;color:var(--bone)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--bone);width:fit-content;font-weight:600;margin-bottom:32px;padding-bottom:10px;border-bottom:1px solid var(--bone)}
+.eyebrow b{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:0.04em;text-transform:none;font-size:13px;font-style:italic}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,7.4vw,128px);line-height:0.94;font-weight:500;letter-spacing:-0.025em;margin-bottom:24px;max-width:1100px}
+h1 em{font-style:italic;color:var(--sage)}
+.hero-lede{color:rgba(245,239,230,.8);font-size:18.5px;line-height:1.7;max-width:520px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-bone{background:var(--bone);color:var(--charcoal);font-weight:700}
+section{padding:96px 0}
+.section-head{margin-bottom:48px;display:flex;justify-content:space-between;align-items:end;gap:48px}
+.kicker{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--rust);font-weight:700;display:block;margin-bottom:14px}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,72px);line-height:1;font-weight:500;letter-spacing:-0.02em}
+h2 em{font-style:italic;color:var(--rust)}
+.listings{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.listing{position:relative;cursor:pointer;transition:transform .3s}
+.listing:hover{transform:translateY(-6px)}
+.listing-img{aspect-ratio:4/5;background-position:center;background-size:cover;background-color:var(--sage)}
+.listing-img.l1{background-image:url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=80')}
+.listing-img.l2{background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80')}
+.listing-img.l3{background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80')}
+.listing-img.l4{background-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=80')}
+.listing-img.l5{background-image:url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80')}
+.listing-img.l6{background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80')}
+.listing-body{padding:22px 4px}
+.listing-tag{display:inline-block;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:8px}
+.listing-body h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;margin-bottom:4px}
+.listing-body p{color:var(--muted);font-size:13.5px;margin-bottom:14px}
+.listing-meta{display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(31,31,29,.16);padding-top:14px}
+.listing-price{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--charcoal)}
+.listing-meta small{font-size:11px;letter-spacing:0.08em;color:var(--muted);font-weight:600}
+.neighborhood{background:var(--bone)}
+.nbh-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center}
+.nbh-img{aspect-ratio:1.1/1;background:url('https://images.unsplash.com/photo-1545061070-a25dc8a3a6cf?w=1600&q=80') center/cover}
+.nbh-tabs{display:flex;gap:0;margin-bottom:32px;border-bottom:1px solid rgba(31,31,29,.16)}
+.nbh-tabs span{padding:14px 26px 14px 0;font-size:13px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s}
+.nbh-tabs span.active{color:var(--charcoal);border-bottom-color:var(--rust)}
+.nbh-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:28px}
+.nbh-stat b{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--rust);display:block;line-height:1}
+.nbh-stat small{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:6px;display:block}
+.agent{background:var(--charcoal);color:var(--bone);position:relative;overflow:hidden}
+.agent h2{color:var(--bone)}
+.agent .kicker{color:var(--rust)}
+.agent-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center}
+.agent-img{aspect-ratio:4/5;background:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1400&q=80') center/cover}
+.agent-body p{color:rgba(245,239,230,.7);font-size:17px;line-height:1.75}
+.agent-body p+p{margin-top:14px}
+.agent-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:38px;padding-top:30px;border-top:1px solid rgba(245,239,230,.18)}
+.agent-stats b{font-family:'Cormorant Garamond',serif;color:var(--bone);font-size:30px;display:block;line-height:1}
+.agent-stats small{color:rgba(245,239,230,.6);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;margin-top:6px;display:block}
+footer{padding:64px 0 32px;background:var(--paper);border-top:1px solid rgba(31,31,29,.08)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px}
+.foot h5{color:var(--rust);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.foot a,.foot li{color:var(--muted);font-size:14px;text-decoration:none;line-height:2;list-style:none}
+.fine{font-size:12px;color:var(--muted);border-top:1px solid rgba(31,31,29,.08);padding-top:22px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand">THE HARTLEY <em>GROUP</em><small>Naples · Palm Beach · Miami</small></div>
+    <div class="nav-links"><a href="#listings">Listings</a><a href="#neighborhoods">Neighborhoods</a><a href="#agent">About</a><a href="#contact">Contact</a></div>
+    <a class="btn btn-c" href="#contact">Schedule Showing</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-art"><div class="hero-overlay"><div class="wrap">
+    <span class="eyebrow"><b>Featured · Q2 2026</b> · Coastal Estate · 11,400 sq ft</span>
+    <h1>Coastal estates,<br><em>quietly</em> represented.</h1>
+    <p class="hero-lede">Luxury real estate for buyers and sellers who don&rsquo;t want their listing on the front page of Zillow. Private network, off-market access, twenty-six years of relationships.</p>
+    <div class="hero-actions">
+      <a class="btn btn-bone" href="#listings">View Active Listings</a>
+      <a class="btn btn-line" href="#contact" style="color:var(--bone);border-color:var(--bone)">Private Showing →</a>
+    </div>
+  </div></div></div>
+</header>
+
+<section id="listings">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="kicker">Active Listings · Featured Six</span><h2>Currently <em>on market.</em></h2></div>
+      <div style="text-align:right"><a class="btn btn-line" href="#">View All 24 Listings →</a></div>
+    </div>
+    <div class="listings">
+      <article class="listing"><div class="listing-img l1"></div><div class="listing-body"><span class="listing-tag">Naples · Gulfshore</span><h3>1418 Gulfshore Boulevard</h3><p>Direct Gulf · 6 bed · 7 bath · 8,200 sq ft · Private dock</p><div class="listing-meta"><div class="listing-price">$18,400,000</div><small>MLS 224019</small></div></div></article>
+      <article class="listing"><div class="listing-img l2"></div><div class="listing-body"><span class="listing-tag">Palm Beach · Worth Ave</span><h3>22 Cocoanut Row</h3><p>Historic Mizner · 5 bed · 6 bath · 6,800 sq ft</p><div class="listing-meta"><div class="listing-price">$22,750,000</div><small>MLS 100382</small></div></div></article>
+      <article class="listing"><div class="listing-img l3"></div><div class="listing-body"><span class="listing-tag">Miami · Star Island</span><h3>14 Star Island Drive</h3><p>Waterfront · 8 bed · 11 bath · 14,200 sq ft</p><div class="listing-meta"><div class="listing-price">$47,000,000</div><small>MLS A11473</small></div></div></article>
+      <article class="listing"><div class="listing-img l4"></div><div class="listing-body"><span class="listing-tag">Naples · Port Royal</span><h3>4250 Gordon Drive</h3><p>Tropical estate · 5 bed · 6 bath · 7,400 sq ft</p><div class="listing-meta"><div class="listing-price">$15,900,000</div><small>MLS 224087</small></div></div></article>
+      <article class="listing"><div class="listing-img l5"></div><div class="listing-body"><span class="listing-tag">Palm Beach · Bel Air</span><h3>1200 South Ocean</h3><p>Oceanfront · 7 bed · 9 bath · 11,900 sq ft</p><div class="listing-meta"><div class="listing-price">$38,500,000</div><small>MLS 100422</small></div></div></article>
+      <article class="listing"><div class="listing-img l6"></div><div class="listing-body"><span class="listing-tag">Miami · Coconut Grove</span><h3>3580 Main Highway</h3><p>Modern · 6 bed · 7 bath · 9,200 sq ft · Pool</p><div class="listing-meta"><div class="listing-price">$26,900,000</div><small>MLS A11502</small></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="neighborhood" id="neighborhoods">
+  <div class="wrap nbh-grid">
+    <div class="nbh-img" aria-hidden></div>
+    <div>
+      <span class="kicker">Neighborhoods We Cover</span>
+      <h2>Three coasts.<br><em>One</em> network.</h2>
+      <div class="nbh-tabs" style="margin-top:32px"><span class="active">Naples</span><span>Palm Beach</span><span>Miami</span></div>
+      <p style="color:var(--muted);font-size:17px;line-height:1.7;max-width:480px">Port Royal, Gordon Drive, Aqualane Shores, Old Naples, and Pelican Bay — we know which seawall is failing and which family is finally selling. That&rsquo;s how the right buyer ends up in the right house.</p>
+      <div class="nbh-stats">
+        <div class="nbh-stat"><b>$14.2M</b><small>Median sale 2025</small></div>
+        <div class="nbh-stat"><b>38</b><small>Closed transactions YTD</small></div>
+        <div class="nbh-stat"><b>9 days</b><small>Avg. days on market</small></div>
+        <div class="nbh-stat"><b>$420M</b><small>Volume 2024</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="agent" id="agent">
+  <div class="wrap agent-grid">
+    <div class="agent-img" aria-hidden></div>
+    <div>
+      <span class="kicker">Lead Broker</span>
+      <h2>Caroline Hartley,<br><em>Founder &amp; Broker.</em></h2>
+      <div class="agent-body">
+        <p>Twenty-six years in luxury coastal real estate. Top 1% nationally, four years running. Worked her first $20M deal at thirty-one and hasn&rsquo;t stopped since.</p>
+        <p>Caroline takes a hard cap of forty active listings per year — half of which are off-market. She still personally hosts every showing for properties over $10M.</p>
+      </div>
+      <div class="agent-stats">
+        <div><b>$420M+</b><small>Closed 2024</small></div>
+        <div><b>Top 1%</b><small>Nationally · 4yr running</small></div>
+        <div><b>2,400+</b><small>Network agents</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot">
+        <div class="brand" style="font-size:22px;margin-bottom:14px">THE HARTLEY <em>GROUP</em></div>
+        <p style="color:var(--muted);font-size:14px;line-height:1.6;max-width:300px">Naples · Palm Beach · Miami. Luxury coastal real estate, quietly represented since 2000.</p>
+      </div>
+      <div class="foot"><h5>Browse</h5><ul><li><a href="#listings">Active Listings</a></li><li><a href="#">Off-Market</a></li><li><a href="#">Recently Sold</a></li><li><a href="#">Sell Your Home</a></li></ul></div>
+      <div class="foot"><h5>Markets</h5><ul><li><a href="#">Naples</a></li><li><a href="#">Palm Beach</a></li><li><a href="#">Miami Beach</a></li><li><a href="#">Coconut Grove</a></li></ul></div>
+      <div class="foot"><h5>Contact</h5><ul><li>1.239.555.0140</li><li><a href="mailto:caroline@hartleygroup.com">caroline@hartleygroup.com</a></li><li>By appointment</li></ul></div>
+    </div>
+    <div class="fine">© 2026 The Hartley Group, LLC. Licensed Brokers FL · NY. Equal Housing Opportunity. <span style="float:right">Built with Ownly Web Studio</span></div>
+  </div>
+</footer>
+</body>
+</html>

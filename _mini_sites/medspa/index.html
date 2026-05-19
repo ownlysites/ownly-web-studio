@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Luminé Aesthetic Medicine — Sarasota · Naples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blush:#f4dfd1;--blush-deep:#e2bea7;--sage:#9ab5a5;--champagne:#d8c4a6;
+  --ink:#2c1f1c;--cream:#faf3ed;--white:#fff;--muted:#7a6863;--gold:#b29460;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:auto;padding:0 28px}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 0;background:rgba(250,243,237,.7);backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,31,28,.06)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;gap:32px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-mark{font-family:'Cormorant Garamond',serif;font-size:32px;letter-spacing:0.06em;font-weight:600;color:var(--ink)}
+.brand-mark em{font-style:italic;color:var(--gold)}
+.brand-sub{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.nav-links{display:flex;gap:32px;font-size:13px;font-weight:500;letter-spacing:0.04em}
+.nav-links a{color:var(--ink);text-decoration:none;opacity:0.75}
+.nav-links a:hover{color:var(--gold);opacity:1}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s;text-decoration:none}
+.btn-d{background:var(--ink);color:var(--cream)}.btn-d:hover{background:#000}
+.btn-g{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.hero{padding:140px 0 80px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;min-height:80vh}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(154,181,165,.15);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);width:fit-content;font-weight:600;margin-bottom:32px}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage)}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(54px,7vw,124px);line-height:0.94;font-weight:500;letter-spacing:-0.025em;margin-bottom:28px}
+h1 em{font-style:italic;color:var(--gold)}
+.hero-lede{color:var(--muted);font-size:18px;line-height:1.7;max-width:480px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-img{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=80') center/cover;box-shadow:0 32px 80px rgba(44,31,28,.16)}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(44,31,28,.34))}
+.float-card{position:absolute;background:rgba(250,243,237,.96);backdrop-filter:blur(12px);border-radius:14px;padding:18px 22px;box-shadow:0 12px 40px rgba(44,31,28,.12);font-size:13px;color:var(--ink)}
+.card-tl{left:-24px;top:30%}.card-br{right:-24px;bottom:24%}
+.float-card .num{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);line-height:1}
+.float-card .lbl{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:600}
+section{padding:96px 0}
+.section-head{margin-bottom:48px;max-width:680px}
+.kicker{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:700;display:block;margin-bottom:14px}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,68px);line-height:1.02;font-weight:500;letter-spacing:-0.015em}
+h2 em{font-style:italic;color:var(--gold)}
+.treatments{background:linear-gradient(180deg,var(--cream),var(--blush) 200%)}
+.treat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.treat{background:var(--white);padding:32px 28px;border-radius:18px;border:1px solid rgba(44,31,28,.06);transition:all .3s}
+.treat:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(44,31,28,.1)}
+.treat-img{aspect-ratio:1.4/1;border-radius:12px;margin-bottom:22px;background-position:center;background-size:cover}
+.treat-img.t1{background-image:url('https://images.unsplash.com/photo-1559599101-f09722fb4948?w=1200&q=80')}
+.treat-img.t2{background-image:url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=1200&q=80')}
+.treat-img.t3{background-image:url('https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1200&q=80')}
+.treat-img.t4{background-image:url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&q=80')}
+.treat-img.t5{background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&q=80')}
+.treat-img.t6{background-image:url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200&q=80')}
+.treat-tag{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);font-weight:700;margin-bottom:8px}
+.treat h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;margin-bottom:10px}
+.treat p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:18px;min-height:60px}
+.treat-meta{display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(44,31,28,.08);padding-top:16px}
+.treat-price{font-family:'Cormorant Garamond',serif;color:var(--ink);font-size:24px}
+.treat-price small{font-family:'Inter',sans-serif;font-size:11px;color:var(--muted);font-weight:600;display:block;letter-spacing:0.06em}
+.member{background:var(--ink);color:var(--cream);position:relative}
+.member h2{color:var(--cream)}
+.member .kicker{color:var(--champagne)}
+.member-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:14px}
+.tier{padding:36px 32px;border-radius:18px;background:rgba(216,196,166,.06);border:1px solid rgba(216,196,166,.16);transition:all .3s}
+.tier.featured{background:rgba(216,196,166,.14);border:1px solid var(--champagne);transform:scale(1.03)}
+.tier-name{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;margin-bottom:6px}
+.tier-tag{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--champagne);font-weight:700;margin-bottom:18px;display:block}
+.tier-price{font-family:'Cormorant Garamond',serif;font-size:48px;color:var(--champagne);line-height:1}
+.tier-price small{font-family:'Inter',sans-serif;font-size:12px;color:rgba(250,243,237,.5);font-weight:500;display:block;margin-top:6px;letter-spacing:0.06em}
+.tier ul{list-style:none;margin:22px 0 26px;display:grid;gap:10px}
+.tier li{font-size:13.5px;color:rgba(250,243,237,.78);display:flex;gap:10px;line-height:1.5}
+.tier li::before{content:"○";color:var(--champagne);font-weight:700}
+.tier .btn-d{background:var(--champagne);color:var(--ink);width:100%;justify-content:center}
+.bookblock{background:var(--blush);color:var(--ink);padding:80px 0;text-align:center}
+.bookblock h2{margin-bottom:16px;max-width:640px;margin-inline:auto}
+.bookblock p{color:var(--muted);max-width:480px;margin:0 auto 32px;font-size:17px}
+footer{padding:56px 0 32px;background:var(--ink);color:rgba(250,243,237,.7)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px}
+.foot h5{color:var(--champagne);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.foot a,.foot li{color:rgba(250,243,237,.7);font-size:14px;text-decoration:none;line-height:2;list-style:none}
+.fine{font-size:12px;color:rgba(250,243,237,.45);border-top:1px solid rgba(250,243,237,.08);padding-top:22px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand"><div class="brand-mark">LUMIN<em>É</em></div><div class="brand-sub">Aesthetic Medicine</div></div>
+    <div class="nav-links">
+      <a href="#treatments">Treatments</a><a href="#member">Membership</a><a href="#team">Our Providers</a><a href="#book">Book</a>
+    </div>
+    <a class="btn btn-d" href="#book">Book a Consult</a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Sarasota · Naples · Open by Appointment</span>
+      <h1>Aesthetic medicine,<br><em>quietly</em> done well.</h1>
+      <p class="hero-lede">Board-certified providers, evidence-led treatments, and the kind of room that doesn&rsquo;t announce itself when you walk in.</p>
+      <div class="hero-actions">
+        <a class="btn btn-d" href="#book">Book a Consult</a>
+        <a class="btn btn-g" href="#treatments">Browse Treatments</a>
+      </div>
+    </div>
+    <div class="hero-img" aria-hidden>
+      <div class="float-card card-tl"><div class="num">12+</div><div class="lbl">Years experience</div></div>
+      <div class="float-card card-br"><div class="num">4.97★</div><div class="lbl">Average review</div></div>
+    </div>
+  </div>
+</header>
+
+<section class="treatments" id="treatments">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Signature Treatments</span>
+      <h2>Six things we&rsquo;ve<br>made <em>quietly</em> excellent.</h2>
+    </div>
+    <div class="treat-grid">
+      <article class="treat"><div class="treat-img t1"></div><span class="treat-tag">Neuromodulator</span><h3>Botox &amp; Dysport</h3><p>Targeted, conservative dosing. Three-month natural maintenance schedule.</p><div class="treat-meta"><div class="treat-price">$13<small>per unit · 20-unit min</small></div><a href="#" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none">Book →</a></div></article>
+      <article class="treat"><div class="treat-img t2"></div><span class="treat-tag">Filler</span><h3>HA Filler</h3><p>Restylane &amp; Juvéderm. Lips, cheeks, jawline. Anatomy-led, never overdone.</p><div class="treat-meta"><div class="treat-price">$650<small>per syringe · from</small></div><a href="#" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none">Book →</a></div></article>
+      <article class="treat"><div class="treat-img t3"></div><span class="treat-tag">Skin</span><h3>Microneedling RF</h3><p>Morpheus8 with on-board topical numbing. Real downtime: 36 hours.</p><div class="treat-meta"><div class="treat-price">$890<small>per session · series of 3</small></div><a href="#" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none">Book →</a></div></article>
+      <article class="treat"><div class="treat-img t4"></div><span class="treat-tag">Laser</span><h3>BBL Photofacial</h3><p>Tone, redness, sun damage. Forever Young protocol. No downtime.</p><div class="treat-meta"><div class="treat-price">$450<small>per session</small></div><a href="#" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none">Book →</a></div></article>
+      <article class="treat"><div class="treat-img t5"></div><span class="treat-tag">Body</span><h3>EmSculpt Neo</h3><p>Build &amp; burn. Abs, glutes, thighs. Four sessions, two weeks apart.</p><div class="treat-meta"><div class="treat-price">$3,200<small>full series of 4</small></div><a href="#" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none">Book →</a></div></article>
+      <article class="treat"><div class="treat-img t6"></div><span class="treat-tag">Wellness</span><h3>IV Therapy</h3><p>NAD+, glutathione, Myers&rsquo;. 45-minute drip in a private suite.</p><div class="treat-meta"><div class="treat-price">$180<small>per session · from</small></div><a href="#" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none">Book →</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="member" id="member">
+  <div class="wrap">
+    <div class="section-head" style="margin:auto;text-align:center;margin-bottom:48px">
+      <span class="kicker">Membership</span>
+      <h2>Three tiers.<br>One philosophy: <em>quietly maintain.</em></h2>
+    </div>
+    <div class="member-grid">
+      <div class="tier">
+        <span class="tier-tag">Tier I</span>
+        <div class="tier-name">Essential</div>
+        <div class="tier-price">$149<small>/ MONTH · BILLED MONTHLY</small></div>
+        <ul><li>Quarterly Botox (up to 20 units)</li><li>One BBL photofacial / year</li><li>10% off all add-ons</li><li>Priority booking</li></ul>
+        <a class="btn btn-d" href="#">Join Essential</a>
+      </div>
+      <div class="tier featured">
+        <span class="tier-tag" style="color:var(--cream)">Most Chosen · Tier II</span>
+        <div class="tier-name">Signature</div>
+        <div class="tier-price">$329<small>/ MONTH · BILLED MONTHLY</small></div>
+        <ul><li>Botox &amp; Dysport (up to 40 units/quarter)</li><li>One filler syringe / year</li><li>Quarterly BBL or HydraFacial</li><li>15% off all add-ons</li><li>Member-only product credit</li></ul>
+        <a class="btn btn-d" href="#">Join Signature</a>
+      </div>
+      <div class="tier">
+        <span class="tier-tag">Tier III</span>
+        <div class="tier-name">Atelier</div>
+        <div class="tier-price">$795<small>/ MONTH · BILLED MONTHLY</small></div>
+        <ul><li>Unlimited Botox / quarter</li><li>Three filler syringes / year</li><li>Morpheus8 series included</li><li>Monthly facial</li><li>20% off everything else</li></ul>
+        <a class="btn btn-d" href="#">Join Atelier</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bookblock" id="book">
+  <div class="wrap">
+    <span class="kicker" style="color:var(--gold)">The First Visit</span>
+    <h2>Start with a <em>consult.</em><br>Decide from there.</h2>
+    <p>Forty-five minutes with one of our providers — no pressure, no upsell. Most consult fees are credited toward your first treatment.</p>
+    <a class="btn btn-d" href="#">Book a Consult →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot">
+        <div class="brand-mark" style="color:var(--cream);margin-bottom:12px">LUMIN<em>É</em></div>
+        <p style="color:rgba(250,243,237,.6);font-size:14px;line-height:1.6;max-width:280px">Aesthetic medicine, quietly done well. Two locations. Florida licensed. Provider-led.</p>
+      </div>
+      <div class="foot"><h5>Visit</h5><ul><li>Sarasota Clinic</li><li>Naples Clinic</li><li><a href="#book">Book Online</a></li></ul></div>
+      <div class="foot"><h5>Treatments</h5><ul><li><a href="#">Botox / Dysport</a></li><li><a href="#">Filler</a></li><li><a href="#">Morpheus8</a></li><li><a href="#">BBL</a></li></ul></div>
+      <div class="foot"><h5>Contact</h5><ul><li>1.941.555.0860</li><li><a href="mailto:hello@luminemed.com">hello@luminemed.com</a></li></ul></div>
+    </div>
+    <div class="fine">© 2026 Luminé Aesthetic Medicine, PLLC · Provider-led · Board-certified <span style="float:right">Built with Ownly Web Studio</span></div>
+  </div>
+</footer>
+</body>
+</html>

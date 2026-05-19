@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quanta — Analytics for Operations Teams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#4338ca;--indigo-deep:#312e81;--lavender:#a5b4fc;--lime:#a3e635;--ink:#0f172a;--paper:#f8fafc;--muted:#64748b;--white:#fff;--card:#fff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+.mono{font-family:'JetBrains Mono',monospace}
+.wrap{max-width:1280px;margin:auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:50;padding:14px 0;background:rgba(248,250,252,.78);backdrop-filter:blur(16px);border-bottom:1px solid rgba(15,23,42,.06)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;gap:32px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--indigo),var(--lavender));display:grid;place-items:center;color:var(--white);font-weight:900;font-size:16px}
+.brand-name{font-weight:800;font-size:19px;letter-spacing:-0.02em;color:var(--ink)}
+.nav-links{display:flex;gap:28px;font-size:14px;font-weight:500}
+.nav-links a{color:var(--ink);text-decoration:none;opacity:0.75}
+.nav-links a:hover{opacity:1}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;border:none;transition:all .2s;text-decoration:none}
+.btn-i{background:var(--ink);color:var(--white)}.btn-i:hover{background:#1e293b}
+.btn-g{background:transparent;color:var(--ink)}.btn-g:hover{color:var(--indigo)}
+.btn-lime{background:var(--lime);color:var(--ink);font-weight:700;font-size:15px;padding:14px 24px}
+.btn-lime:hover{background:#84cc16}
+.hero{padding:72px 0 96px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:0;right:0;width:50%;height:120%;background:radial-gradient(ellipse at top right,rgba(67,56,202,.16),transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(67,56,202,.08);font-size:12px;color:var(--indigo);font-weight:700;width:fit-content;margin-bottom:24px}
+.eyebrow::before{content:"●";color:var(--lime);font-size:10px}
+h1{font-size:clamp(46px,5.6vw,78px);line-height:1.02;font-weight:800;letter-spacing:-0.035em;margin-bottom:22px;color:var(--ink)}
+h1 .grad{background:linear-gradient(135deg,var(--indigo),var(--lavender));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-lede{font-size:19px;line-height:1.6;color:var(--muted);max-width:520px;margin-bottom:32px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:38px}
+.signal{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted);font-weight:500}
+.signal::before{content:"●";color:var(--lime);font-size:10px}
+.hero-dash{position:relative;background:var(--ink);border-radius:14px;padding:20px;box-shadow:0 32px 80px rgba(15,23,42,.24);color:var(--white);overflow:hidden}
+.dash-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.dash-dots{display:flex;gap:5px}
+.dash-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2)}
+.dash-url{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.5)}
+.dash-title{font-size:13px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:14px;display:flex;justify-content:space-between}
+.dash-title b{color:var(--lime)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:rgba(255,255,255,.04);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
+.kpi small{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;display:block;margin-bottom:4px}
+.kpi b{font-size:22px;font-weight:800;letter-spacing:-0.02em}
+.kpi b.up{color:var(--lime)}
+.kpi span{font-size:11px;color:rgba(255,255,255,.5);font-family:'JetBrains Mono',monospace}
+.chart-block{background:rgba(255,255,255,.04);padding:18px;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
+.chart-title{font-size:12px;color:rgba(255,255,255,.7);margin-bottom:10px;display:flex;justify-content:space-between}
+.chart-title b{color:var(--white)}
+.chart{height:120px;position:relative}
+.chart svg{width:100%;height:100%}
+section{padding:88px 0}
+.section-head{margin-bottom:48px;text-align:center;max-width:680px;margin-inline:auto}
+.kicker{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--indigo);font-weight:700;display:block;margin-bottom:14px}
+h2{font-size:clamp(36px,4.4vw,56px);line-height:1.05;font-weight:800;letter-spacing:-0.025em}
+h2 .grad{background:linear-gradient(135deg,var(--indigo),var(--lavender));-webkit-background-clip:text;background-clip:text;color:transparent}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{padding:28px 26px;background:var(--card);border-radius:14px;border:1px solid rgba(15,23,42,.08);transition:all .2s}
+.feat:hover{border-color:var(--indigo);box-shadow:0 12px 32px rgba(67,56,202,.1)}
+.feat-icon{width:42px;height:42px;border-radius:10px;background:rgba(67,56,202,.1);color:var(--indigo);display:grid;place-items:center;margin-bottom:18px;font-weight:900;font-size:18px}
+.feat h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.feat p{font-size:14px;color:var(--muted);line-height:1.6}
+.integrations{background:linear-gradient(180deg,var(--paper),#eef2ff)}
+.logo-wall{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.logo-box{aspect-ratio:1.6/1;background:var(--white);border-radius:12px;border:1px solid rgba(15,23,42,.08);display:grid;place-items:center;font-weight:800;font-size:15px;color:var(--ink);letter-spacing:-0.01em}
+.calc{background:var(--ink);color:var(--white)}
+.calc h2{color:var(--white)}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.calc-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:32px}
+.calc-input{margin-bottom:18px}
+.calc-input label{display:flex;justify-content:space-between;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:700;margin-bottom:8px}
+.calc-input label b{color:var(--lime);font-size:18px;letter-spacing:0;text-transform:none;font-family:'JetBrains Mono',monospace}
+.slider{height:6px;background:rgba(255,255,255,.08);border-radius:3px;position:relative}
+.slider div{position:absolute;left:0;top:0;bottom:0;background:var(--lime);border-radius:3px}
+.s40{width:40%}.s55{width:55%}.s30{width:30%}
+.calc-result{margin-top:24px;padding:24px;background:var(--indigo-deep);border-radius:10px}
+.calc-result small{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--lavender);font-weight:700;display:block;margin-bottom:8px}
+.calc-result b{font-size:42px;font-weight:900;color:var(--lime);letter-spacing:-0.02em}
+.calc-result span{font-size:13px;color:rgba(255,255,255,.5);display:block;margin-top:6px}
+.cta-block{padding:88px 0;text-align:center}
+.cta-block h2{margin-bottom:18px}
+.cta-block p{color:var(--muted);max-width:520px;margin:0 auto 32px;font-size:17px}
+footer{padding:48px 0 28px;background:var(--paper);border-top:1px solid rgba(15,23,42,.08)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:28px}
+.foot h5{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);font-weight:800;margin-bottom:12px}
+.foot a,.foot li{color:var(--muted);font-size:14px;text-decoration:none;line-height:1.95;list-style:none}
+.fine{font-size:12px;color:var(--muted);border-top:1px solid rgba(15,23,42,.08);padding-top:18px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand"><div class="brand-mark">Q</div><div class="brand-name">Quanta</div></div>
+    <div class="nav-links"><a href="#features">Features</a><a href="#integrations">Integrations</a><a href="#pricing">Pricing</a><a href="#docs">Docs</a><a href="#blog">Changelog</a></div>
+    <div class="nav-cta"><a class="btn btn-g" href="#login">Log in</a><a class="btn btn-i" href="#trial">Start Free Trial</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Series A · Backed by Founders Fund &amp; Lightspeed</span>
+      <h1>Ops analytics<br><span class="grad">without the dashboard graveyard.</span></h1>
+      <p class="hero-lede">Quanta plugs into your warehouse, builds the model for you, and tells your ops team what to do next — in plain English.</p>
+      <div class="hero-actions">
+        <a class="btn btn-lime" href="#trial">Start 14-day trial →</a>
+        <a class="btn btn-g" href="#demo">Watch 3-min demo</a>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;color:var(--muted);font-size:14px"><span class="signal">SOC 2 Type II</span><span class="signal">99.99% uptime</span><span class="signal">5,400+ ops teams</span></div>
+    </div>
+    <div class="hero-dash">
+      <div class="dash-head"><div class="dash-dots"><span></span><span></span><span></span></div><div class="dash-url mono">app.quanta.io / dashboards / ops-pulse</div></div>
+      <div class="dash-title"><span>Ops pulse · Last 7 days</span><b>● Live</b></div>
+      <div class="kpi-row">
+        <div class="kpi"><small>Cycle Time</small><b class="up">4.2d</b><span class="mono">↓ 18%</span></div>
+        <div class="kpi"><small>Throughput</small><b>1,847</b><span class="mono">↑ 12%</span></div>
+        <div class="kpi"><small>SLA Hit</small><b class="up">97.4%</b><span class="mono">↑ 2.1%</span></div>
+        <div class="kpi"><small>Bottleneck</small><b>QA</b><span class="mono">3.1d wait</span></div>
+      </div>
+      <div class="chart-block">
+        <div class="chart-title"><span>Throughput · 24h</span><b>1,847</b></div>
+        <div class="chart">
+          <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+            <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a3e635" stop-opacity="0.6"/><stop offset="1" stop-color="#a3e635" stop-opacity="0"/></linearGradient></defs>
+            <polyline points="0,90 30,72 60,80 90,55 120,62 150,40 180,48 210,35 240,42 270,25 300,30 330,18 360,22 400,10" stroke="#a3e635" stroke-width="2" fill="none" />
+            <polygon points="0,90 30,72 60,80 90,55 120,62 150,40 180,48 210,35 240,42 270,25 300,30 330,18 360,22 400,10 400,120 0,120" fill="url(#g)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Features</span><h2>Built for the<br>person on <span class="grad">call.</span></h2></div>
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-icon">⌘</div><h3>One-line model</h3><p>Connect your warehouse, run our setup wizard, get a working ops model in eleven minutes.</p></div>
+      <div class="feat"><div class="feat-icon">⚡</div><h3>Live SLA alerts</h3><p>Slack + PagerDuty hooks. The alert shows up before your ops team notices the bottleneck.</p></div>
+      <div class="feat"><div class="feat-icon">⊞</div><h3>Drag-and-drop boards</h3><p>Build a dashboard without SQL. Save views per role, share with one URL.</p></div>
+      <div class="feat"><div class="feat-icon">∑</div><h3>Cohort everything</h3><p>Customer, region, batch, season — any field becomes a cohort dimension with one click.</p></div>
+      <div class="feat"><div class="feat-icon">↻</div><h3>Forecasting</h3><p>Built-in Prophet + ARIMA. Run a forecast on any metric without leaving the page.</p></div>
+      <div class="feat"><div class="feat-icon">🛡</div><h3>SOC 2 + audit log</h3><p>Type II since 2023. Every query, edit, and export logged for ninety days.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="integrations" id="integrations">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Integrations</span><h2>Plugs into the<br>stack you already use.</h2></div>
+    <div class="logo-wall">
+      <div class="logo-box">Snowflake</div><div class="logo-box">BigQuery</div><div class="logo-box">Databricks</div><div class="logo-box">Postgres</div><div class="logo-box">Redshift</div><div class="logo-box">Looker</div>
+      <div class="logo-box">Slack</div><div class="logo-box">PagerDuty</div><div class="logo-box">Salesforce</div><div class="logo-box">HubSpot</div><div class="logo-box">Segment</div><div class="logo-box">Linear</div>
+    </div>
+  </div>
+</section>
+
+<section class="calc" id="pricing">
+  <div class="wrap calc-grid">
+    <div>
+      <span class="kicker" style="color:var(--lavender)">ROI Calculator</span>
+      <h2>What does Quanta<br>save your team?</h2>
+      <p style="color:rgba(255,255,255,.7);max-width:440px;margin-top:18px;font-size:17px;line-height:1.65">Move the sliders. We&rsquo;ll show the typical 90-day payback from teams of your size.</p>
+    </div>
+    <div class="calc-card">
+      <div class="calc-input"><label>Ops Headcount <b>42</b></label><div class="slider"><div class="s40"></div></div></div>
+      <div class="calc-input"><label>Avg. Salary <b>$92,000</b></label><div class="slider"><div class="s55"></div></div></div>
+      <div class="calc-input"><label>Hours/Week on Reporting <b>9.5</b></label><div class="slider"><div class="s30"></div></div></div>
+      <div class="calc-result"><small>Annual recovered productivity</small><b class="mono">$1.94M</b><span>~84% reduction in manual reporting · 12-week payback</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-block">
+  <div class="wrap">
+    <span class="kicker">Start free</span>
+    <h2>Try Quanta on your<br>warehouse <span class="grad">in 11 minutes.</span></h2>
+    <p>No credit card. Connect Snowflake, BigQuery, or Postgres. Cancel any time.</p>
+    <a class="btn btn-lime" href="#trial">Start 14-day trial →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot">
+        <div class="brand" style="margin-bottom:14px"><div class="brand-mark">Q</div><div class="brand-name">Quanta</div></div>
+        <p style="color:var(--muted);font-size:14px;max-width:280px;line-height:1.6">Analytics built for ops teams. Plug in your warehouse, get the answer back.</p>
+      </div>
+      <div class="foot"><h5>Product</h5><ul><li><a href="#">Features</a></li><li><a href="#">Integrations</a></li><li><a href="#">Pricing</a></li><li><a href="#">Changelog</a></li></ul></div>
+      <div class="foot"><h5>Company</h5><ul><li><a href="#">About</a></li><li><a href="#">Customers</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li></ul></div>
+      <div class="foot"><h5>Resources</h5><ul><li><a href="#">Docs</a></li><li><a href="#">API</a></li><li><a href="#">Security</a></li><li><a href="#">Status</a></li></ul></div>
+    </div>
+    <div class="fine">© 2026 Quanta Labs, Inc. SOC 2 Type II Certified. <span style="float:right">Built with Ownly Web Studio</span></div>
+  </div>
+</footer>
+</body>
+</html>
