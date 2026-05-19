@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" role="img" aria-labelledby="title desc">
+  <title id="title">Competitor intelligence website layout map</title>
+  <desc id="desc">A custom research board showing competing websites, search intent, and conversion signals.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#123965"/>
+      <stop offset="1" stop-color="#0b2341"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop stop-color="#efd37f"/>
+      <stop offset="1" stop-color="#c9a227"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#32b47e"/>
+      <stop offset="1" stop-color="#0b6b4f"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#0b2341" flood-opacity=".36"/>
+    </filter>
+  </defs>
+  <rect width="720" height="460" rx="28" fill="url(#bg)"/>
+  <path d="M52 96h616M52 184h616M52 272h616M52 360h616M138 48v364M278 48v364M418 48v364M558 48v364" stroke="#eef2f5" stroke-opacity=".08"/>
+  <rect x="44" y="38" width="632" height="384" rx="22" fill="#eef2f5" fill-opacity=".06" stroke="#c9a227" stroke-opacity=".32"/>
+  <g filter="url(#shadow)">
+    <rect x="78" y="82" width="182" height="124" rx="16" fill="#f7f8f8"/>
+    <rect x="98" y="106" width="96" height="20" rx="6" fill="#123965"/>
+    <rect x="98" y="140" width="126" height="9" rx="5" fill="#123965" fill-opacity=".24"/>
+    <rect x="98" y="158" width="98" height="9" rx="5" fill="#123965" fill-opacity=".2"/>
+    <rect x="98" y="176" width="70" height="14" rx="5" fill="url(#gold)"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="270" y="66" width="184" height="154" rx="18" fill="#f7f8f8"/>
+    <rect x="292" y="92" width="112" height="24" rx="7" fill="#123965"/>
+    <rect x="292" y="134" width="132" height="10" rx="5" fill="#123965" fill-opacity=".24"/>
+    <rect x="292" y="154" width="94" height="10" rx="5" fill="#123965" fill-opacity=".2"/>
+    <rect x="292" y="178" width="76" height="18" rx="5" fill="url(#green)"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="468" y="96" width="172" height="112" rx="16" fill="#f7f8f8"/>
+    <rect x="488" y="120" width="82" height="18" rx="6" fill="#123965"/>
+    <rect x="488" y="154" width="112" height="8" rx="4" fill="#123965" fill-opacity=".24"/>
+    <rect x="488" y="172" width="86" height="8" rx="4" fill="#123965" fill-opacity=".2"/>
+  </g>
+  <path d="M178 242C266 228 340 250 420 232C496 214 550 230 620 196" fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M122 352C206 306 286 330 360 298C446 262 524 284 604 236" fill="none" stroke="url(#green)" stroke-width="6" stroke-linecap="round"/>
+  <g fill="#f7f8f8">
+    <text x="78" y="284" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">Layout patterns</text>
+    <text x="78" y="314" font-family="Inter, Arial, sans-serif" font-size="13" opacity=".72">Proof placement, CTA rhythm, market gaps</text>
+    <text x="78" y="372" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">Search intent</text>
+    <text x="78" y="400" font-family="Inter, Arial, sans-serif" font-size="13" opacity=".72">Service terms, local terms, buyer questions</text>
+  </g>
+  <circle cx="620" cy="196" r="13" fill="url(#gold)"/>
+  <circle cx="604" cy="236" r="11" fill="url(#green)"/>
+</svg>
