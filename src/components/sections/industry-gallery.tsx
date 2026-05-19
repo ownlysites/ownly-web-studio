@@ -61,7 +61,6 @@ export function IndustryGallery() {
               Built by us last week.
             </>
           }
-          subtitle="Every card below is a working Ownly build, captured by Playwright from the actual rendered page — not a mockup."
         />
 
         <div className="mb-10 flex justify-center">
@@ -84,19 +83,6 @@ export function IndustryGallery() {
             <GalleryCard key={v.slug} v={v} index={i} />
           ))}
         </motion.div>
-
-        <p className="mt-10 text-center text-sm text-slate-text">
-          Every site above is a working Ownly build. View the source on{" "}
-          <a
-            href="https://github.com/ownlysites/ownly-web-studio"
-            target="_blank"
-            rel="noopener"
-            className="font-bold text-gold-deep underline-offset-4 hover:underline"
-          >
-            GitHub
-          </a>
-          .
-        </p>
       </div>
     </section>
   );

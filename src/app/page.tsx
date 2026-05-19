@@ -1,7 +1,5 @@
 import { SiteNav } from "@/components/sections/nav";
 import { Hero } from "@/components/sections/hero";
-import { TrustStrip } from "@/components/sections/trust-strip";
-import { FeaturedWork } from "@/components/sections/featured-work";
 import { IndustryGallery } from "@/components/sections/industry-gallery";
 import { BuildPipeline } from "@/components/sections/build-pipeline";
 import { Capabilities } from "@/components/sections/capabilities";
@@ -20,8 +18,6 @@ export default function HomePage() {
       <SiteNav />
       <main className="relative">
         <Hero />
-        <TrustStrip />
-        <FeaturedWork />
         <IndustryGallery />
         <BuildPipeline />
         <Capabilities />
