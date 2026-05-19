@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maker &amp; Hearth — Modern American Bistro · Austin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --burgundy:#5a1722;--burgundy-deep:#3d0d18;--cream:#f6efe3;--paper:#fbf6ec;--ink:#241616;--muted:#7b6b6b;--gold:#b78b3a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.55}
+.serif{font-family:'Playfair Display',serif}
+.wrap{max-width:1240px;margin:auto;padding:0 28px}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 0;background:rgba(251,246,236,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(36,22,22,.08)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.brand{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;letter-spacing:-0.01em}
+.brand em{font-style:italic;color:var(--burgundy)}
+.brand small{display:block;font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-top:2px;font-weight:600}
+.nav-links{display:flex;gap:32px;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;font-weight:500}
+.nav-links a{color:var(--ink);text-decoration:none;opacity:0.75;transition:opacity .2s}
+.nav-links a:hover{opacity:1;color:var(--burgundy)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:6px;font-weight:600;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s;text-decoration:none}
+.btn-b{background:var(--burgundy);color:var(--cream)}
+.btn-b:hover{background:var(--burgundy-deep)}
+.btn-line{background:transparent;border:1px solid var(--burgundy);color:var(--burgundy)}
+.hero{padding:160px 0 80px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;min-height:90vh}
+.hero-text{padding-right:24px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:999px;background:rgba(90,23,34,.06);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--burgundy);width:fit-content;font-weight:700;margin-bottom:32px}
+.eyebrow span{width:5px;height:5px;border-radius:50%;background:var(--burgundy)}
+h1{font-family:'Playfair Display',serif;font-size:clamp(54px,7vw,116px);line-height:0.96;font-weight:500;letter-spacing:-0.025em;margin-bottom:28px}
+h1 em{font-style:italic;color:var(--burgundy)}
+.hero-lede{color:var(--muted);font-size:19px;line-height:1.65;max-width:520px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.stars{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.stars b{color:var(--burgundy)}
+.hero-img{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&q=80') center/cover;box-shadow:0 32px 80px rgba(36,22,22,.16)}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(36,22,22,.4))}
+.hero-badge{position:absolute;left:18px;bottom:18px;z-index:2;color:var(--cream);font-family:'Playfair Display',serif;font-style:italic;font-size:18px}
+.hero-badge small{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(246,239,227,.7);margin-top:4px;font-weight:600}
+section{padding:96px 0}
+.section-head{margin-bottom:48px;max-width:680px}
+.kicker{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--burgundy);font-weight:700;display:block;margin-bottom:14px}
+h2{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,68px);line-height:1.02;font-weight:500;letter-spacing:-0.015em}
+h2 em{font-style:italic;color:var(--burgundy)}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:48px 64px}
+.menu-col h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(36,22,22,.16)}
+.dish{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start;padding:18px 0;border-bottom:1px dashed rgba(36,22,22,.1)}
+.dish:last-child{border-bottom:none}
+.dish h4{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:5px}
+.dish p{color:var(--muted);font-size:13.5px;line-height:1.5}
+.dish-price{font-family:'Playfair Display',serif;font-size:22px;color:var(--burgundy);font-style:italic}
+.chef{background:var(--burgundy);color:var(--cream)}
+.chef h2{color:var(--cream)}
+.chef .kicker{color:var(--gold)}
+.chef-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center}
+.chef-img{aspect-ratio:4/5;background:url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=1200&q=80') center/cover;border-radius:14px}
+.chef-body{font-size:18px;line-height:1.7}
+.chef-body p+p{margin-top:16px;color:rgba(246,239,227,.78)}
+.signature{font-family:'Playfair Display',serif;font-style:italic;font-size:32px;color:var(--gold);margin-top:24px}
+.press{padding:64px 0;border-top:1px solid rgba(36,22,22,.08);border-bottom:1px solid rgba(36,22,22,.08)}
+.press-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:32px;align-items:center;text-align:center}
+.press-grid span{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--muted);opacity:0.7}
+.cta{padding:120px 0;text-align:center;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=2400&q=80') center/cover;position:relative;color:var(--cream)}
+.cta::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,22,22,.62),rgba(36,22,22,.78))}
+.cta-inner{position:relative;z-index:2}
+.cta h2{color:var(--cream);margin-bottom:18px}
+.cta p{color:rgba(246,239,227,.7);max-width:520px;margin:0 auto 32px;font-size:17px}
+footer{padding:56px 0 32px;background:var(--paper);border-top:1px solid rgba(36,22,22,.08)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px}
+.foot h5{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);font-weight:700;margin-bottom:14px}
+.foot a,.foot li{color:var(--muted);font-size:14px;text-decoration:none;line-height:1.95;list-style:none}
+.fine{font-size:12px;color:var(--muted);border-top:1px solid rgba(36,22,22,.08);padding-top:22px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand">Maker <em>&amp;</em> Hearth<small>Modern American · Austin</small></div>
+    <div class="nav-links">
+      <a href="#menu">Menu</a><a href="#chef">Chef</a><a href="#press">Press</a><a href="#visit">Visit</a>
+    </div>
+    <a class="btn btn-b" href="#reserve">Reserve a Table</a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="hero-text">
+    <span class="eyebrow"><span></span> Now Booking Summer · Dinner Wed–Sun</span>
+    <h1>The kind of <em>dinner</em><br>worth driving to.</h1>
+    <p class="hero-lede">Six courses of seasonal modern American, plated by Chef Lina Park&rsquo;s team in a thirty-eight-seat dining room on East Sixth.</p>
+    <div class="hero-actions">
+      <a class="btn btn-b" href="#reserve">Book Tonight</a>
+      <a class="btn btn-line" href="#menu">See Menu</a>
+      <div class="stars">★★★★★ <b>4.9</b> · 312 reviews</div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="hero-badge">Tonight: tasting menu, six courses<small>$165 / Guest · with wine pairing $245</small></div>
+  </div>
+</header>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The Menu — Spring</span>
+      <h2>Built around <em>what&rsquo;s in</em><br>this morning.</h2>
+    </div>
+    <div class="menu">
+      <div class="menu-col">
+        <h3>First Course</h3>
+        <div class="dish"><div><h4>Hamachi crudo</h4><p>Yuzu kosho, persimmon, brown butter, brioche soldier.</p></div><div class="dish-price">22</div></div>
+        <div class="dish"><div><h4>Spring pea agnolotti</h4><p>Brown butter, parmesan, lemon, toasted pine.</p></div><div class="dish-price">19</div></div>
+        <div class="dish"><div><h4>Crispy chicken liver</h4><p>Pickled shallot, fig jam, sourdough.</p></div><div class="dish-price">17</div></div>
+      </div>
+      <div class="menu-col">
+        <h3>Mains</h3>
+        <div class="dish"><div><h4>Wagyu strip · 12oz</h4><p>Black garlic, smoked marrow butter, charred allium.</p></div><div class="dish-price">86</div></div>
+        <div class="dish"><div><h4>Whole Gulf snapper</h4><p>Salt-baked, served tableside. For two.</p></div><div class="dish-price">94</div></div>
+        <div class="dish"><div><h4>Heirloom carrot</h4><p>Charred, miso, hazelnut crumble. (V)</p></div><div class="dish-price">28</div></div>
+      </div>
+      <div class="menu-col">
+        <h3>Dessert</h3>
+        <div class="dish"><div><h4>Olive oil cake</h4><p>Texas peach, cardamom cream, rosemary syrup.</p></div><div class="dish-price">14</div></div>
+        <div class="dish"><div><h4>Burnt basque</h4><p>Cheesecake, salted bourbon caramel.</p></div><div class="dish-price">13</div></div>
+      </div>
+      <div class="menu-col">
+        <h3>From the Bar</h3>
+        <div class="dish"><div><h4>Smoked old fashioned</h4><p>Mesquite, demerara, orange. Built tableside.</p></div><div class="dish-price">19</div></div>
+        <div class="dish"><div><h4>Sommelier&rsquo;s pour</h4><p>Whatever Lina&rsquo;s drinking right now. Trust us.</p></div><div class="dish-price">14</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chef" id="chef">
+  <div class="wrap">
+    <div class="chef-grid">
+      <div class="chef-img" aria-hidden></div>
+      <div>
+        <span class="kicker">The Chef</span>
+        <h2 style="margin-bottom:28px">Trained in <em>Lyon.</em><br>Cooks like home.</h2>
+        <div class="chef-body">
+          <p>Lina Park spent twelve years in Lyon and a year at Eleven Madison Park before opening Maker &amp; Hearth in 2024. She doesn&rsquo;t print menus until 4pm because that&rsquo;s when she finishes walking the market.</p>
+          <p>The menu changes weekly. The technique doesn&rsquo;t.</p>
+        </div>
+        <div class="signature">— Lina</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="press" id="press">
+  <div class="wrap press-grid">
+    <span>Eater</span><span>Bon Appétit</span><span>The Infatuation</span><span>Texas Monthly</span><span>James Beard ★ '25</span>
+  </div>
+</section>
+
+<section class="cta" id="reserve">
+  <div class="wrap cta-inner">
+    <h2>Reserve a <em>table.</em></h2>
+    <p>Two seatings · 6pm and 8:30pm. Walk-ins welcome at the four-seat counter on the kitchen line.</p>
+    <a class="btn btn-b" href="#" style="background:var(--gold);color:var(--burgundy-deep)">Book on OpenTable →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot">
+        <div class="brand" style="margin-bottom:14px">Maker <em>&amp;</em> Hearth</div>
+        <p style="color:var(--muted);font-size:14px;max-width:300px;line-height:1.6">418 East 6th Street · Austin, Texas 78701 · Wed–Sun · Dinner Only</p>
+      </div>
+      <div class="foot"><h5>Visit</h5><ul><li><a href="#menu">Menu</a></li><li><a href="#reserve">Reservations</a></li><li><a href="#">Private Events</a></li></ul></div>
+      <div class="foot"><h5>Connect</h5><ul><li><a href="#">@makerandhearth</a></li><li><a href="#">Newsletter</a></li></ul></div>
+      <div class="foot"><h5>Contact</h5><ul><li>1.512.555.0418</li><li><a href="mailto:reserve@makerhearth.com">reserve@makerhearth.com</a></li></ul></div>
+    </div>
+    <div class="fine">© 2026 Maker &amp; Hearth, LLC. <span style="float:right">Built with Ownly Web Studio</span></div>
+  </div>
+</footer>
+</body>
+</html>

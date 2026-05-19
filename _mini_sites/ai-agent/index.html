@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Replywise — Inbound AI for Service Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#6d28d9;--purple-deep:#3b0764;--cyan:#22d3ee;--cyan-bright:#67e8f9;--violet:#a78bfa;
+  --ink:#f5f3ff;--bg:#0c0625;--bg-2:#1a0e3d;--card:rgba(255,255,255,.04);--muted:#a5a3c4;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.display{font-family:'Manrope',sans-serif;letter-spacing:-0.025em}
+.wrap{max-width:1280px;margin:auto;padding:0 28px}
+body::before{content:"";position:fixed;inset:0;z-index:0;background:radial-gradient(800px 600px at 80% 10%,rgba(109,40,217,.4),transparent 70%),radial-gradient(800px 600px at 10% 70%,rgba(34,211,238,.18),transparent 70%);pointer-events:none}
+nav{position:sticky;top:0;z-index:50;padding:18px 0;background:rgba(12,6,37,.72);backdrop-filter:blur(20px);border-bottom:1px solid rgba(167,139,250,.12)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;gap:32px;position:relative;z-index:2}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--purple),var(--cyan));display:grid;place-items:center;font-weight:900;font-size:14px;color:var(--ink)}
+.brand-name{font-family:'Manrope',sans-serif;font-weight:800;font-size:19px;letter-spacing:-0.03em}
+.nav-links{display:flex;gap:30px;font-size:14px;font-weight:500}
+.nav-links a{color:var(--ink);text-decoration:none;opacity:0.7}
+.nav-links a:hover{opacity:1;color:var(--cyan-bright)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;border:none;transition:all .2s;text-decoration:none}
+.btn-c{background:var(--cyan);color:var(--bg);font-weight:800}
+.btn-c:hover{background:var(--cyan-bright);transform:translateY(-1px)}
+.btn-g{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid rgba(255,255,255,.12)}
+.btn-g:hover{background:rgba(255,255,255,.1)}
+.hero{padding:80px 0 96px;position:relative;z-index:2}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.24);font-size:12px;color:var(--violet);font-weight:700;width:fit-content;margin-bottom:28px;letter-spacing:0.02em}
+.eyebrow::before{content:"●";color:var(--cyan-bright);font-size:10px;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:0.3}}
+h1{font-family:'Manrope',sans-serif;font-size:clamp(48px,5.8vw,82px);line-height:1.02;font-weight:800;letter-spacing:-0.04em;margin-bottom:24px}
+h1 .grad{background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-lede{font-size:19px;line-height:1.7;color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.trust-row{display:flex;flex-wrap:wrap;gap:24px;color:var(--muted);font-size:13.5px;align-items:center}
+.trust-row b{color:var(--cyan-bright);font-weight:700}
+.chat{position:relative;background:linear-gradient(180deg,rgba(167,139,250,.06),rgba(34,211,238,.04));backdrop-filter:blur(20px);border:1px solid rgba(167,139,250,.18);border-radius:20px;padding:24px;box-shadow:0 32px 80px rgba(12,6,37,.6)}
+.chat::before{content:"";position:absolute;inset:-1px;border-radius:20px;background:linear-gradient(135deg,rgba(167,139,250,.4),transparent 30%,transparent 70%,rgba(34,211,238,.4));z-index:-1;filter:blur(2px);opacity:0.5}
+.chat-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid rgba(167,139,250,.12);margin-bottom:18px}
+.chat-head-l{display:flex;align-items:center;gap:12px}
+.bot-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--cyan));display:grid;place-items:center;font-weight:800;font-size:14px}
+.bot-name{font-weight:700;font-size:15px}
+.bot-status{font-size:11px;color:var(--cyan-bright);display:flex;align-items:center;gap:6px}
+.bot-status::before{content:"●";font-size:8px;animation:pulse 1.6s infinite}
+.chat-msgs{display:grid;gap:14px;min-height:330px}
+.msg{display:flex;gap:10px;align-items:start;max-width:88%}
+.msg.bot .bubble{background:rgba(167,139,250,.14);border:1px solid rgba(167,139,250,.22);color:var(--ink)}
+.msg.user{margin-left:auto;flex-direction:row-reverse}
+.msg.user .bubble{background:linear-gradient(135deg,var(--purple),var(--purple-deep));color:var(--ink)}
+.msg-av{width:30px;height:30px;border-radius:50%;font-size:11px;font-weight:800;display:grid;place-items:center;flex-shrink:0}
+.msg.bot .msg-av{background:rgba(34,211,238,.18);color:var(--cyan-bright)}
+.msg.user .msg-av{background:rgba(255,255,255,.08);color:var(--ink)}
+.bubble{padding:11px 16px;border-radius:14px;font-size:14px;line-height:1.55}
+.bubble.typing{color:var(--muted);font-style:italic}
+.bubble.typing::after{content:" ▋";animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0}}
+.chat-input{margin-top:18px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(167,139,250,.16);border-radius:12px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
+.chat-input b{color:var(--cyan-bright);font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
+section{padding:88px 0;position:relative;z-index:2}
+.section-head{margin-bottom:48px;max-width:680px;margin-inline:auto;text-align:center}
+.kicker{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--cyan-bright);font-weight:700;display:block;margin-bottom:14px}
+h2{font-family:'Manrope',sans-serif;font-size:clamp(38px,4.6vw,60px);line-height:1.05;font-weight:800;letter-spacing:-0.03em}
+h2 .grad{background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feat{padding:32px 28px;background:rgba(255,255,255,.03);border:1px solid rgba(167,139,250,.16);border-radius:16px;transition:all .3s;backdrop-filter:blur(8px)}
+.feat:hover{border-color:var(--cyan);background:rgba(34,211,238,.06);transform:translateY(-4px)}
+.feat-icon{width:42px;height:42px;border-radius:11px;background:rgba(167,139,250,.16);color:var(--violet);display:grid;place-items:center;margin-bottom:18px;font-weight:900;font-size:18px}
+.feat h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:700;margin-bottom:8px}
+.feat p{color:var(--muted);font-size:14px;line-height:1.6}
+.pricing{position:relative}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.price-card{padding:32px 30px;background:rgba(255,255,255,.04);border:1px solid rgba(167,139,250,.16);border-radius:16px;position:relative}
+.price-card.featured{background:linear-gradient(180deg,rgba(167,139,250,.16),rgba(34,211,238,.04));border:1px solid var(--cyan);transform:scale(1.03)}
+.price-tag{display:inline-block;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--cyan-bright);font-weight:800;margin-bottom:14px}
+.price-name{font-family:'Manrope',sans-serif;font-size:26px;font-weight:800;margin-bottom:8px}
+.price{font-family:'Manrope',sans-serif;font-size:56px;font-weight:800;letter-spacing:-0.04em;color:var(--ink);line-height:1}
+.price small{font-family:'Inter',sans-serif;font-size:14px;color:var(--muted);font-weight:500;letter-spacing:0}
+.price-card ul{list-style:none;margin:24px 0 26px;display:grid;gap:10px}
+.price-card li{font-size:14px;color:var(--muted);display:flex;gap:10px;line-height:1.5}
+.price-card li::before{content:"✓";color:var(--cyan-bright);font-weight:900}
+.cta{padding:96px 0;text-align:center}
+.cta h2{margin-bottom:16px}
+.cta p{color:var(--muted);max-width:520px;margin:0 auto 30px;font-size:17px}
+footer{padding:48px 0 28px;border-top:1px solid rgba(167,139,250,.1);position:relative;z-index:2}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:28px}
+.foot h5{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);font-weight:800;margin-bottom:12px}
+.foot a,.foot li{color:var(--muted);font-size:14px;text-decoration:none;line-height:1.95;list-style:none}
+.fine{font-size:12px;color:var(--muted);border-top:1px solid rgba(167,139,250,.08);padding-top:18px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand"><div class="brand-mark">R</div><div class="brand-name">Replywise</div></div>
+    <div class="nav-links"><a href="#how">How it works</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#api">API</a></div>
+    <div style="display:flex;gap:10px"><a class="btn btn-g" href="#login">Log in</a><a class="btn btn-c" href="#trial">Try free →</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">For HVAC · Roofing · Plumbing · Med Spa · Real Estate</span>
+      <h1>The AI that<br>answers your leads<br><span class="grad">while you sleep.</span></h1>
+      <p class="hero-lede">Replywise reads your inbound chat, voice, and form submissions, qualifies the lead, and books it on your calendar — in under 90 seconds.</p>
+      <div class="hero-actions">
+        <a class="btn btn-c" href="#trial">Try free for 14 days →</a>
+        <a class="btn btn-g" href="#demo">Talk to the agent ↗</a>
+      </div>
+      <div class="trust-row">
+        <span>👥 <b>3,400+</b> service businesses</span>
+        <span>📞 <b>1.2M</b> leads handled</span>
+        <span>⚡ <b>91s</b> avg time-to-book</span>
+      </div>
+    </div>
+    <div class="chat">
+      <div class="chat-head">
+        <div class="chat-head-l">
+          <div class="bot-av">RW</div>
+          <div><div class="bot-name">Replywise · Tidewater HVAC</div><div class="bot-status">Online · 91s avg response</div></div>
+        </div>
+        <span style="font-size:12px;color:var(--muted)">Live demo</span>
+      </div>
+      <div class="chat-msgs">
+        <div class="msg user"><div class="msg-av">K</div><div class="bubble">Hi, my AC stopped working overnight. Can someone come today?</div></div>
+        <div class="msg bot"><div class="msg-av">R</div><div class="bubble">Sorry to hear that — we can definitely help. Can I grab your address and the system age?</div></div>
+        <div class="msg user"><div class="msg-av">K</div><div class="bubble">3421 Sandpiper Way, Sarasota. Unit is about 8 years old, Carrier brand.</div></div>
+        <div class="msg bot"><div class="msg-av">R</div><div class="bubble">Got it. Mark can be there between 11:30 AM and 1:00 PM today. Service call is $89, applied to repair. Should I book it?</div></div>
+        <div class="msg user"><div class="msg-av">K</div><div class="bubble">Yes please — 11:30 works</div></div>
+        <div class="msg bot"><div class="msg-av">R</div><div class="bubble typing">Booking now and texting confirmation to your number</div></div>
+      </div>
+      <div class="chat-input"><span>Type a message…</span><b>Lead booked · 91s</b></div>
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">What it does</span><h2>One agent.<br><span class="grad">Three channels.</span> Zero missed leads.</h2></div>
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-icon">💬</div><h3>Chat widget</h3><p>Drop one script tag. Trained on your services, your hours, your pricing — in 12 minutes.</p></div>
+      <div class="feat"><div class="feat-icon">📞</div><h3>Voice agent</h3><p>Twilio-backed phone number. Handles after-hours calls, books appointments, transfers urgent.</p></div>
+      <div class="feat"><div class="feat-icon">✉</div><h3>Form &amp; email</h3><p>Inbound contact forms and emails are answered, qualified, and booked while you&rsquo;re asleep.</p></div>
+      <div class="feat"><div class="feat-icon">📅</div><h3>Calendar booking</h3><p>Direct Google Calendar / Calendly / Acuity write. Confirms via SMS automatically.</p></div>
+      <div class="feat"><div class="feat-icon">🎯</div><h3>Smart qualification</h3><p>Filter by budget, service area, urgency. Only the leads you want make it to your phone.</p></div>
+      <div class="feat"><div class="feat-icon">🔁</div><h3>Hand-off &amp; escalate</h3><p>Anything outside the agent&rsquo;s scope routes to your team via SMS, Slack, or live phone transfer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Pricing</span><h2>Pay for the<br>leads it <span class="grad">books.</span></h2></div>
+    <div class="price-grid">
+      <div class="price-card">
+        <span class="price-tag">Starter</span>
+        <div class="price-name">Solo</div>
+        <div class="price">$149<small>/ mo</small></div>
+        <ul><li>Up to 200 conversations / mo</li><li>Chat + form channels</li><li>1 calendar integration</li><li>Email support</li></ul>
+        <a class="btn btn-g" href="#" style="width:100%;justify-content:center">Start free trial</a>
+      </div>
+      <div class="price-card featured">
+        <span class="price-tag">Most Popular</span>
+        <div class="price-name">Team</div>
+        <div class="price">$449<small>/ mo</small></div>
+        <ul><li>Unlimited conversations</li><li>Chat + voice + form + email</li><li>3 calendar integrations</li><li>SMS confirmation + reminders</li><li>Custom training (1 hr)</li><li>Priority chat support</li></ul>
+        <a class="btn btn-c" href="#" style="width:100%;justify-content:center">Start free trial →</a>
+      </div>
+      <div class="price-card">
+        <span class="price-tag">Multi-location</span>
+        <div class="price-name">Scale</div>
+        <div class="price">$1,250<small>/ mo</small></div>
+        <ul><li>Up to 10 locations</li><li>All Team features</li><li>Advanced routing rules</li><li>Dedicated success manager</li><li>SLA &amp; custom integration</li></ul>
+        <a class="btn btn-g" href="#" style="width:100%;justify-content:center">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <span class="kicker">Get started</span>
+    <h2>Stop missing leads<br>at <span class="grad">2:14 AM.</span></h2>
+    <p>Replywise sets up in twelve minutes. 14-day free trial, no credit card, full refund anytime.</p>
+    <a class="btn btn-c" href="#" style="font-size:16px;padding:16px 32px">Start free trial →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot">
+        <div class="brand" style="margin-bottom:14px"><div class="brand-mark">R</div><div class="brand-name">Replywise</div></div>
+        <p style="color:var(--muted);font-size:14px;max-width:280px;line-height:1.6">The AI that answers, qualifies, and books your inbound leads — across chat, voice, and form.</p>
+      </div>
+      <div class="foot"><h5>Product</h5><ul><li><a href="#">Features</a></li><li><a href="#">Pricing</a></li><li><a href="#">API</a></li><li><a href="#">Integrations</a></li></ul></div>
+      <div class="foot"><h5>For</h5><ul><li><a href="#">HVAC</a></li><li><a href="#">Roofing</a></li><li><a href="#">Plumbing</a></li><li><a href="#">Med Spas</a></li></ul></div>
+      <div class="foot"><h5>Company</h5><ul><li><a href="#">About</a></li><li><a href="#">Customers</a></li><li><a href="#">Security</a></li><li><a href="#">Privacy</a></li></ul></div>
+    </div>
+    <div class="fine">© 2026 Replywise Labs, Inc. <span style="float:right">Built with Ownly Web Studio</span></div>
+  </div>
+</footer>
+</body>
+</html>

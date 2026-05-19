@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meridian Wealth Partners — High Net Worth Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a2540;--navy-deep:#061830;--ivory:#f7f3ea;--gold:#a98741;--gold-soft:#c5a76a;
+  --slate:#465a73;--white:#fff;--paper:#fbf8f1;--ink:#1a2a3f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:auto;padding:0 28px}
+.compliance{background:var(--navy-deep);color:rgba(247,243,234,.7);padding:8px 0;font-size:11px;text-align:center;letter-spacing:0.05em;font-weight:500}
+nav{position:sticky;top:0;z-index:50;background:rgba(251,248,241,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(10,37,64,.08);padding:18px 0}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-mark{width:42px;height:42px;border-radius:6px;background:var(--navy);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;display:grid;place-items:center}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:0.04em;color:var(--navy)}
+.brand-sub{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--slate);font-weight:600;margin-top:2px}
+.nav-links{display:flex;gap:32px;font-size:13px;font-weight:500;letter-spacing:0.04em}
+.nav-links a{color:var(--ink);text-decoration:none;opacity:0.8}
+.nav-links a:hover{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:4px;font-weight:600;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s;text-decoration:none}
+.btn-n{background:var(--navy);color:var(--ivory)}.btn-n:hover{background:var(--navy-deep)}
+.btn-g{background:var(--gold);color:var(--navy);font-weight:700}
+.hero{padding:96px 0 88px;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--paper),var(--ivory))}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:4px;background:rgba(169,135,65,.1);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);width:fit-content;font-weight:700;margin-bottom:30px}
+.eyebrow::before{content:"";width:6px;height:6px;background:var(--gold)}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,6.4vw,98px);line-height:0.98;font-weight:500;letter-spacing:-0.02em;margin-bottom:24px;color:var(--navy)}
+h1 em{font-style:italic;color:var(--gold)}
+.hero-lede{color:var(--slate);font-size:18.5px;line-height:1.7;max-width:540px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+.trust-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;padding-top:30px;border-top:1px solid rgba(10,37,64,.1)}
+.trust-strip div b{font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--navy);display:block;line-height:1;letter-spacing:-0.01em}
+.trust-strip div small{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);font-weight:600;margin-top:8px;display:block}
+.hero-img{position:relative;aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:url('https://images.unsplash.com/photo-1604762524889-3e2fcc145683?w=1600&q=80') center/cover;box-shadow:0 32px 80px rgba(10,37,64,.22)}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,37,64,.42))}
+.aum-pill{position:absolute;left:24px;bottom:24px;z-index:2;background:rgba(247,243,234,.96);padding:14px 22px;border-radius:6px;backdrop-filter:blur(6px)}
+.aum-pill b{font-family:'Cormorant Garamond',serif;color:var(--navy);font-size:28px;line-height:1;display:block}
+.aum-pill small{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--slate);font-weight:700;margin-top:4px;display:block}
+section{padding:96px 0}
+.section-head{margin-bottom:48px;max-width:680px}
+.kicker{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:700;display:block;margin-bottom:14px}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,68px);line-height:1.02;font-weight:500;letter-spacing:-0.015em;color:var(--navy)}
+h2 em{font-style:italic;color:var(--gold)}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.svc{padding:36px;background:var(--white);border:1px solid rgba(10,37,64,.08);border-radius:8px;transition:all .25s}
+.svc:hover{border-color:var(--gold);box-shadow:0 16px 48px rgba(10,37,64,.08)}
+.svc-num{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:18px;font-style:italic;margin-bottom:16px}
+.svc h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;margin-bottom:12px;color:var(--navy)}
+.svc p{color:var(--slate);font-size:14.5px;line-height:1.65;margin-bottom:18px}
+.svc ul{list-style:none;display:grid;gap:8px}
+.svc li{font-size:13px;color:var(--ink);padding:6px 0;border-top:1px solid rgba(10,37,64,.06);display:flex;justify-content:space-between}
+.svc li b{color:var(--gold);font-weight:700}
+.advisor{background:var(--navy);color:var(--ivory);position:relative;overflow:hidden}
+.advisor h2{color:var(--ivory)}.advisor .kicker{color:var(--gold-soft)}
+.advisor-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center}
+.advisor-img{aspect-ratio:4/5;background:url('https://images.unsplash.com/photo-1556157382-97eda2d62296?w=1400&q=80') center/cover;border-radius:8px;box-shadow:0 32px 80px rgba(6,24,48,.5)}
+.advisor h2{margin-bottom:24px}
+.advisor-body p{color:rgba(247,243,234,.78);font-size:17px;line-height:1.75}
+.advisor-body p+p{margin-top:14px}
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px;padding-top:30px;border-top:1px solid rgba(247,243,234,.16)}
+.cred b{font-family:'Cormorant Garamond',serif;color:var(--gold-soft);font-size:24px;display:block}
+.cred small{color:rgba(247,243,234,.6);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;margin-top:4px;display:block}
+.calc{padding:80px 0;background:var(--ivory)}
+.calc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.calc-card{background:var(--white);padding:36px;border-radius:8px;border:1px solid rgba(10,37,64,.08);box-shadow:0 16px 56px rgba(10,37,64,.06)}
+.slider-block{margin-bottom:24px}
+.slider-block label{display:flex;justify-content:space-between;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);font-weight:700;margin-bottom:10px}
+.slider-block label b{color:var(--navy);font-size:18px;font-family:'Cormorant Garamond',serif;letter-spacing:0}
+.slider-track{height:6px;border-radius:3px;background:rgba(10,37,64,.1);position:relative}
+.slider-fill{position:absolute;left:0;top:0;bottom:0;background:var(--gold);border-radius:3px}
+.fill-65{width:65%}.fill-40{width:40%}.fill-78{width:78%}
+.proj-result{padding:28px 32px;background:var(--navy);color:var(--ivory);border-radius:6px;margin-top:8px}
+.proj-result small{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-soft);font-weight:700}
+.proj-result b{font-family:'Cormorant Garamond',serif;font-size:42px;display:block;margin-top:4px;letter-spacing:-0.01em}
+.proj-result span{font-size:13px;color:rgba(247,243,234,.66);display:block;margin-top:6px}
+footer{padding:72px 0 36px;background:var(--navy-deep);color:rgba(247,243,234,.7)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:34px}
+.foot h5{color:var(--gold);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.foot a,.foot li{color:rgba(247,243,234,.66);font-size:14px;text-decoration:none;line-height:2;list-style:none}
+.disc{font-size:11px;color:rgba(247,243,234,.5);line-height:1.6;margin-bottom:16px}
+.fine{font-size:12px;color:rgba(247,243,234,.45);border-top:1px solid rgba(247,243,234,.1);padding-top:22px}
+</style>
+</head>
+<body>
+<div class="compliance">Securities offered through registered representatives. Member FINRA / SIPC. <span style="color:var(--gold-soft)">Form ADV →</span></div>
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand"><div class="brand-mark">M</div><div><div class="brand-name">Meridian Wealth Partners</div><div class="brand-sub">A Registered Investment Advisor</div></div></div>
+    <div class="nav-links"><a href="#services">Services</a><a href="#advisor">Our Advisors</a><a href="#approach">Approach</a><a href="#calculator">Calculator</a></div>
+    <a class="btn btn-n" href="#contact">Schedule Consultation</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">High Net Worth · Generational Planning · Florida + New York</span>
+      <h1>Built for the<br>family <em>after</em><br>the liquidity event.</h1>
+      <p class="hero-lede">Independent, fee-only advisory for families navigating $5M+ portfolios. No commissions, no proprietary products, no quarterly pitches.</p>
+      <div class="hero-actions">
+        <a class="btn btn-n" href="#contact">Schedule a Consultation →</a>
+        <a class="btn btn-g" href="#approach">Read our investment thesis</a>
+      </div>
+      <div class="trust-strip">
+        <div><b>$2.4B</b><small>Assets under advisement</small></div>
+        <div><b>148</b><small>Family relationships</small></div>
+        <div><b>22yr</b><small>Average advisor tenure</small></div>
+      </div>
+    </div>
+    <div class="hero-img"><div class="aum-pill"><b>Boutique by design</b><small>Capped at 200 client families</small></div></div>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">What We Do</span><h2>Comprehensive wealth, <em>quietly</em> coordinated.</h2></div>
+    <div class="svc-grid">
+      <div class="svc"><div class="svc-num">i</div><h3>Investment Management</h3><p>Custom portfolios built around your tax basis, time horizon, and concentration risk — never an off-the-shelf model.</p><ul><li>Asset allocation <b>Quarterly</b></li><li>Rebalancing <b>Tax-aware</b></li><li>Manager review <b>Annual</b></li></ul></div>
+      <div class="svc"><div class="svc-num">ii</div><h3>Tax + Estate Planning</h3><p>In-house CPA review, trust structuring, generation-skipping transfers, and charitable strategy coordinated with your attorneys.</p><ul><li>Tax projection <b>Twice / year</b></li><li>Estate review <b>Annual</b></li><li>GST coordination <b>Included</b></li></ul></div>
+      <div class="svc"><div class="svc-num">iii</div><h3>Concentrated Stock</h3><p>10b5-1 plans, exchange funds, prepaid variable forwards. We know what the wirehouse won&rsquo;t structure.</p><ul><li>10b5-1 design <b>Yes</b></li><li>Exchange funds <b>Direct access</b></li><li>Hedging strategy <b>Custom</b></li></ul></div>
+      <div class="svc"><div class="svc-num">iv</div><h3>Family Office Lite</h3><p>Bill pay, insurance review, document custody, and family meeting facilitation for the year you don&rsquo;t want to think about it.</p><ul><li>Bill pay <b>Optional</b></li><li>Insurance audit <b>Annual</b></li><li>Family meeting <b>Facilitated</b></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="advisor" id="advisor">
+  <div class="wrap advisor-grid">
+    <div class="advisor-img" aria-hidden></div>
+    <div>
+      <span class="kicker">Lead Advisor</span>
+      <h2>Margaret K. Whitford,<br><em>CFP® · CFA · MBA</em></h2>
+      <div class="advisor-body">
+        <p>Twenty-six years of comprehensive wealth advisory. Former partner at a Wall Street RIA, founded Meridian to take fewer clients and do deeper work.</p>
+        <p>Margaret personally signs every quarterly review. There is no associate-level advisor on your account — ever.</p>
+      </div>
+      <div class="cred-grid">
+        <div class="cred"><b>CFP®</b><small>Certified Financial Planner</small></div>
+        <div class="cred"><b>CFA</b><small>Chartered Financial Analyst</small></div>
+        <div class="cred"><b>FORBES</b><small>Top 100 Advisors '24</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="calc" id="calculator">
+  <div class="wrap calc-grid">
+    <div>
+      <span class="kicker">The Projection</span>
+      <h2>What does <em>$5M</em><br>look like in 20 years?</h2>
+      <p class="hero-lede" style="margin-top:18px">Adjust the inputs to see how our typical portfolio (60/40 with tax-aware overlays) compounds vs. a benchmark passive 60/40.</p>
+    </div>
+    <div class="calc-card">
+      <div class="slider-block"><label>Starting Portfolio <b>$5,000,000</b></label><div class="slider-track"><div class="slider-fill fill-65"></div></div></div>
+      <div class="slider-block"><label>Annual Contribution <b>$120,000</b></label><div class="slider-track"><div class="slider-fill fill-40"></div></div></div>
+      <div class="slider-block"><label>Time Horizon <b>20 years</b></label><div class="slider-track"><div class="slider-fill fill-78"></div></div></div>
+      <div class="proj-result"><small>Projected · Meridian Approach</small><b>$28.4M</b><span>Net of fees · vs. $22.1M benchmark · +28% advantage</span></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot">
+        <div class="brand-name" style="color:var(--gold);margin-bottom:14px">Meridian Wealth Partners</div>
+        <p class="disc">Meridian Wealth Partners, LLC is a Registered Investment Advisor. Past performance is not indicative of future results. Securities offered through registered representatives of MW Capital, member FINRA/SIPC.</p>
+      </div>
+      <div class="foot"><h5>Services</h5><ul><li><a href="#services">Investment</a></li><li><a href="#">Tax + Estate</a></li><li><a href="#">Concentrated Stock</a></li><li><a href="#">Family Office</a></li></ul></div>
+      <div class="foot"><h5>Firm</h5><ul><li><a href="#advisor">Advisors</a></li><li><a href="#">Form ADV</a></li><li><a href="#">Form CRS</a></li><li><a href="#">Privacy</a></li></ul></div>
+      <div class="foot"><h5>Contact</h5><ul><li>1.212.555.0140</li><li>1.941.555.0290</li><li><a href="mailto:hello@meridianwealth.com">hello@meridianwealth.com</a></li></ul></div>
+    </div>
+    <div class="fine">© 2026 Meridian Wealth Partners, LLC. All rights reserved. <span style="float:right">Built with Ownly Web Studio</span></div>
+  </div>
+</footer>
+</body>
+</html>
