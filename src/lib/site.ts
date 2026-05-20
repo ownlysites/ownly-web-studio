@@ -6,7 +6,7 @@ export const SITE = {
   phone: "941-277-9876",
   issue: "VOL.I · NO.01 · MMXXVI",
   founder: "Dave Ivery, NFEC CFEI · AI Consultant",
-  apolloId: "67e7a3e58ad8a9a0c3e7a3e5", // placeholder; if you have the real id, set in env later
+  apolloId: "6a03527613cf03001b6db951", // placeholder; if you have the real id, set in env later
 };
 
 export const CTAS = {
