@@ -191,7 +191,7 @@ export default function Gallery() {
           <div className="max-w-2xl">
             <p className="eyebrow eyebrow-rule">THE GALLERY</p>
             <h2 className="font-display mt-4" style={{ fontSize: "clamp(36px, 4.5vw, 56px)", lineHeight: 1.05, color: "var(--ink)", fontWeight: 500 }}>
-              Eight industries. <em style={{ color: "var(--gold)", fontStyle: "italic" }}>One standard.</em>
+              Any industry. <em style={{ color: "var(--gold)", fontStyle: "italic" }}>One standard.</em>
             </h2>
             <p className="mt-5" style={{ color: "var(--text-mute)", fontSize: 16, lineHeight: 1.7 }}>
               Every page below is a real Next.js build, deployed live, fully responsive, AI-agent ready.
