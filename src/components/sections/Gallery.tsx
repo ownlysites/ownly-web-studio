@@ -13,6 +13,7 @@ function Tile({
   const [hover, setHover] = useState(false);
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -23,11 +24,49 @@ function Tile({
           obs.disconnect();
         }
       },
-      { rootMargin: "200px" }
+      { rootMargin: "200px", threshold: 0.05 }
     );
     obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
+
+  // Touch devices: don't autoplay loops. Instead, play once when the tile is
+  // in the viewport, then pause. Avoids battery drain from concurrent loops
+  // and respects iOS Safari autoplay-with-sound restrictions.
+  useEffect(() => {
+    if (!inView) return;
+    const v = videoRef.current;
+    if (!v) return;
+    const isTouch =
+      typeof window !== "undefined" &&
+      window.matchMedia("(pointer: coarse)").matches;
+    if (!isTouch) return;
+
+    // Pause when ended (we removed loop attribute on touch via render below)
+    const onEnded = () => v.pause();
+    v.addEventListener("ended", onEnded);
+
+    const playObs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          // Best-effort; ignore promise rejections (e.g. user-gesture required)
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      },
+      { threshold: 0.05 }
+    );
+    playObs.observe(v);
+    return () => {
+      playObs.disconnect();
+      v.removeEventListener("ended", onEnded);
+    };
+  }, [inView]);
+
+  const isTouch =
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer: coarse)").matches;
 
   return (
     <article
@@ -75,22 +114,23 @@ function Tile({
             }}
           />
         )}
-        {/* Hover loop */}
+        {/* Hover loop (desktop). Touch devices: play-once via IO above. */}
         {inView && (
           <video
+            ref={videoRef}
             src={industry.loop}
             muted
-            loop
+            loop={!isTouch}
             playsInline
             preload="none"
-            autoPlay
+            autoPlay={!isTouch}
             style={{
               position: "absolute",
               inset: 0,
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              opacity: hover ? 1 : 0,
+              opacity: isTouch ? 1 : hover ? 1 : 0,
               transition: "opacity .35s ease",
               pointerEvents: "none",
               background: "#0F1F39",
