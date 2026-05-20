@@ -9,7 +9,7 @@ const STEPS = [
   {
     n: "01",
     label: "The Sit Down",
-    body: "30-minute Calendly. We listen. We surface F.A.C.T. gaps in your current presence.",
+    body: "15-minute Calendly. We listen. We surface F.A.C.T. gaps in your current presence.",
     badge: "$0",
     img: "/illustrations/step_1_sitdown.png",
   },
@@ -108,7 +108,7 @@ export default function Process() {
         <div className="max-w-2xl">
           <p className="eyebrow eyebrow-rule">THE WORKBENCH</p>
           <h2 className="font-display mt-4" style={{ fontSize: "clamp(36px, 4.5vw, 56px)", lineHeight: 1.05, color: "var(--ink)", fontWeight: 500 }}>
-            From a 30-minute Sit Down to <em style={{ color: "var(--gold)", fontStyle: "italic" }}>a site that runs the room.</em>
+            From a 15-minute Sit Down to <em style={{ color: "var(--gold)", fontStyle: "italic" }}>a site that runs the room.</em>
           </h2>
           <p className="mt-5" style={{ color: "var(--text-mute)", fontSize: 16, lineHeight: 1.7 }}>
             Five steps. No agency theater. Scroll the bench →
