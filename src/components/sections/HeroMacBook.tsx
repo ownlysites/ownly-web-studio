@@ -52,6 +52,9 @@ function GoldParticles({ count = 220 }: { count?: number }) {
 export default function HeroMacBook() {
   const [idx, setIdx] = useState(0);
   useEffect(() => {
+    // 6s plain setInterval. Touch-safe — runs in foreground tabs on iOS Safari.
+    // iOS will throttle when the tab is backgrounded, which is the desired
+    // battery behavior. No rAF / mouse dependency.
     const t = setInterval(() => setIdx((i) => (i + 1) % INDUSTRIES.length), 6000);
     return () => clearInterval(t);
   }, []);

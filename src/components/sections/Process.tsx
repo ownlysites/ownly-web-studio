@@ -49,6 +49,31 @@ export default function Process() {
 
   useEffect(() => {
     if (!trackRef.current || !wrapRef.current) return;
+
+    // Touch devices: skip GSAP scroll-jacking entirely. Fall back to a
+    // vertical stacked layout (CSS @media pointer: coarse) plus an
+    // IntersectionObserver that fades each .timeline-step in.
+    const isTouch =
+      typeof window !== "undefined" &&
+      window.matchMedia("(pointer: coarse)").matches;
+
+    if (isTouch) {
+      const steps = trackRef.current.querySelectorAll<HTMLElement>(".timeline-step");
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.05 }
+      );
+      steps.forEach((s) => io.observe(s));
+      return () => io.disconnect();
+    }
+
     gsap.registerPlugin(ScrollTrigger);
     const track = trackRef.current;
     const wrap = wrapRef.current;
@@ -100,7 +125,7 @@ export default function Process() {
           {STEPS.map((s) => (
             <article
               key={s.n}
-              className="shrink-0"
+              className="shrink-0 timeline-step"
               style={{
                 width: "min(560px, 85vw)",
                 background: "var(--paper-cream)",

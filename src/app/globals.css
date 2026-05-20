@@ -176,5 +176,81 @@ body > * { position: relative; z-index: 1; }
 .oc-toast .oc-secondary { display: inline-block; background: transparent; border: 1px solid rgba(255,255,255,.25); color: #FAF7EE; padding: 12px 26px; border-radius: 999px; font-weight: 700; cursor: pointer; font-size: 14px; font-family: inherit; }
 
 /* Tile hover for gallery */
-.tile-frame { transition: box-shadow .35s ease, transform .35s ease; }
-.tile-frame:hover { box-shadow: 0 30px 60px -20px rgba(15,31,57,.25); transform: translateY(-2px); }
+.tile-frame {
+  transition: box-shadow .35s ease, transform .35s ease;
+  transform: perspective(1200px) rotateX(0deg) rotateY(0deg);
+  transform-style: preserve-3d;
+  will-change: transform;
+  animation: tilt-breathe 6s ease-in-out infinite;
+}
+.tile-frame:hover {
+  box-shadow: 0 30px 60px -20px rgba(15,31,57,.25);
+  transform: perspective(1200px) translateY(-2px);
+  animation-play-state: paused;
+}
+
+/* Editorial ambient idle — slow, paper-luxury, ±1.5deg max */
+@keyframes tilt-breathe {
+  0%, 100% { transform: perspective(1200px) rotateX(0deg) rotateY(0deg); }
+  25%      { transform: perspective(1200px) rotateX(0.8deg) rotateY(-1.2deg); }
+  50%      { transform: perspective(1200px) rotateX(1.3deg) rotateY(0deg); }
+  75%      { transform: perspective(1200px) rotateX(0.6deg) rotateY(1.2deg); }
+}
+
+/* Process timeline mobile fallback (when GSAP scroll-jacking is skipped) */
+@media (pointer: coarse) {
+  .timeline-step {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .timeline-step.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Drop parallax / fixed backgrounds on touch */
+  * {
+    background-attachment: scroll !important;
+  }
+
+  /* Cursor magnet inert on touch — no class in repo yet; this is a guard
+     in case one is added later. */
+  .cursor-magnet,
+  [data-cursor-magnet] {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* The tilt-breathe ambient is desktop-only — too busy on small screens. */
+  .tile-frame {
+    animation: none;
+  }
+}
+
+/* Reduced motion: fall back to opacity fade, not zero-motion. */
+@media (prefers-reduced-motion: reduce) {
+  .tile-frame {
+    animation: none !important;
+    transition: opacity .4s ease !important;
+    transform: none !important;
+  }
+  .tile-frame:hover {
+    transform: none !important;
+  }
+  .timeline-step {
+    transition: opacity .5s ease !important;
+    transform: none !important;
+  }
+  .timeline-step.is-visible {
+    transform: none !important;
+  }
+  /* Keep crossfades; kill translate / scale / rotate motion. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: .4s !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
